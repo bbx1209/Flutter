@@ -4,6 +4,25 @@ void main() {
   runApp(MyApp());
 }
 
+class NewRoute extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar (
+        title: Text("New  Route"),
+      ),
+      body: Center (
+        child: Text("This is new route"),
+      ),
+    );
+  }
+
+
+}
+
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -20,7 +39,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -99,6 +118,15 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            FlatButton (
+              child: Text("open new route"),
+              textColor: Colors.blue,
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return NewRoute();
+                }));
+              },
             ),
           ],
         ),
