@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_news_app/Rows.dart';
 
 void main() {
   runApp(MyApp());
@@ -80,11 +81,20 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("open new route"),
               textColor: Colors.blue,
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context){
                   return NewRoute();
                 }));
               },
             ),
+            FloatingActionButton (
+              onPressed:(){
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context){
+                  return RowRoute();
+                }));
+              }
+            )
           ],
         ),
       ),
