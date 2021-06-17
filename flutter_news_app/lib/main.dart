@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed:(){
                 Navigator.push(context,
                 MaterialPageRoute(builder: (context){
-                  return RowRoute();
+                  return RowRoute(text: "我是传过去的哦",);
                 }));
               }
             )

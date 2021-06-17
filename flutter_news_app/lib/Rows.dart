@@ -4,6 +4,13 @@ import 'package:flutter/material.dart';
 
 class RowRoute extends StatelessWidget {
 
+  RowRoute({
+    Key key,
+  @required  this.text,
+  }) : super(key: key);
+
+  final String text;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -14,7 +21,14 @@ class RowRoute extends StatelessWidget {
        body: Column(
          children: [
            Center(
-             child: Text("This is a row test view"),
+             child: Column(
+               children: [
+                 Text("$text"),
+                 ElevatedButton(onPressed: () => Navigator.pop(context,"我是返回值"),
+                 child: Text("返回"),
+                 )
+               ],
+             ),
            ),
          ],
        ),
