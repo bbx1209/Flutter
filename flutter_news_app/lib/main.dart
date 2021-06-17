@@ -87,12 +87,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 }));
               },
             ),
-            FloatingActionButton (
-              onPressed:(){
-                Navigator.push(context,
+            OutlinedButton (
+              child: Text("pass value"),
+             onPressed:() async {
+               var result =  await Navigator.push(context,
                 MaterialPageRoute(builder: (context){
                   return RowRoute(text: "我是传过去的哦",);
                 }));
+               print("这是个回调值：$result");
+
               }
             )
           ],
