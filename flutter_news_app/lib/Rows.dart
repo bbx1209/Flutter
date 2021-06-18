@@ -34,7 +34,7 @@ class RowRoute extends StatelessWidget {
                  
                  OutlinedButton(onPressed: () {
                    print("out lined button");
-                 }, child: nil)
+                 }, child: Text("button"))
 
                ],
              ),
