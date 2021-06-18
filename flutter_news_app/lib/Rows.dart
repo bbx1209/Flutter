@@ -39,6 +39,15 @@ class RowRoute extends StatelessWidget {
                ],
              ),
            ),
+           Center(
+             child: Row(
+               children: [
+                 Text("row 1"),
+                 Text("row 2"),
+               ],
+             ),
+
+           ),
          ],
        ),
     );
