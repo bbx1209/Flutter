@@ -46,10 +46,13 @@ class RowRoute extends StatelessWidget {
                mainAxisAlignment: MainAxisAlignment.center,
                children: [
                  Text("row 1"),
-                 Padding(
-                   padding: const EdgeInsets.fromLTRB(18, 0, 18, 0),
-                   child: Text("row 2"),
-                 ),
+                 //NOTE: 折行或者ellipsis 需要用Expanded
+                 Expanded(
+                     child : Text("row 2  当然水电费阿斯蒂芬阿斯蒂芬阿斯蒂芬阿是的分公司电饭锅34曲儿复工IQ鹅肉好热乎归属地仁恒国际",
+                       overflow: TextOverflow.ellipsis,
+                     ),
+                   )
+
                ],
              ),
 
