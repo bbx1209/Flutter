@@ -30,7 +30,11 @@ class RowRoute extends StatelessWidget {
 
                  FloatingActionButton(onPressed: () {
                    print("flating button");
-                 })
+                 }),
+                 
+                 OutlinedButton(onPressed: () {
+                   print("out lined button");
+                 }, child: nil)
 
                ],
              ),
