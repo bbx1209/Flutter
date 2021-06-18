@@ -26,7 +26,12 @@ class RowRoute extends StatelessWidget {
                  Text("$text"),
                  ElevatedButton(onPressed: () => Navigator.pop(context,"我是返回值"),
                  child: Text("返回"),
-                 )
+                 ),
+
+                 FloatingActionButton(onPressed: () {
+                   print("flating button");
+                 })
+
                ],
              ),
            ),
