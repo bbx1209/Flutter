@@ -37,7 +37,8 @@ class MyApp extends StatelessWidget {
 
       routes: {
         "newRoute":(context) => NewRoute(),
-        "RowRoute":(context) => RowRoute(text: "来自注册路由")
+        "RowRoute":(context) => RowRoute(text: "来自注册路由"),
+        "ImageRoute":(context) => ImageRoute()
       },
 
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -107,6 +108,10 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(onPressed: (){
               Navigator.pushNamed(context, "RowRoute");
             }, child: Text("注册路由")),
+
+            TextButton(onPressed: (){
+              Navigator.pushNamed(context, "ImageRoute");
+            }, child: Text("Image route"))
           ],
         ),
       ),

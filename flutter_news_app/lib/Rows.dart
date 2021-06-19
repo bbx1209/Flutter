@@ -81,3 +81,30 @@ class RowRoute extends StatelessWidget {
     );
   }
 }
+
+
+class ImageRoute extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("image "),
+      ),
+      body: Column(
+        children: [
+
+          Center(
+             child: Image(
+                  image: AssetImage("images/1.png"),
+                  width: 50
+              )
+          )
+
+        ],
+      ),
+    );
+  }
+
+}
