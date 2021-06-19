@@ -92,17 +92,20 @@ class ImageRoute extends StatelessWidget {
       appBar: AppBar(
         title: Text("image "),
       ),
-      body: Column(
-        children: [
+      body: Padding(
+        padding: const EdgeInsets.only(top: 18.0),
+        child: Column(
+          children: [
 
-          Center(
-             child: Image(
-                  image: AssetImage("images/1.png"),
-                  width: 50
-              )
-          )
+            Center(
+               child: Image(
+                    image: AssetImage("images/1.png"),
+                    width: 50
+                )
+            )
 
-        ],
+          ],
+        ),
       ),
     );
   }
