@@ -13,10 +13,27 @@ class ListViewRoute extends StatelessWidget {
         child: ListTalbeView(),
       ),
 
+      bottomNavigationBar: BottomAppBar (
+
+        child: IconTheme(
+            data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+          child: Row (
+            children: [
+              IconButton(icon: const Icon(Icons.menu), onPressed: (){
+                print("press menu");
+              },color: Colors.blue,) ,
+              IconButton(icon: const Icon(Icons.add), onPressed: (){
+                print("press add");
+              } ,color: Colors.blue,),
+            ],
+          ),
+        ),
+
+      ),
+
   );
 }
 }
-
 
 
 
