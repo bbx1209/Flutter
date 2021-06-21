@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_news_app/Rows.dart';
+import 'package:flutter_news_app/ListView.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "newRoute":(context) => NewRoute(),
         "RowRoute":(context) => RowRoute(text: "来自注册路由"),
-        "ImageRoute":(context) => ImageRoute()
+        "ImageRoute":(context) => ImageRoute(),
+        "ListViewRoute" :(context) => ListViewRoute()
       },
 
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -111,7 +113,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
             TextButton(onPressed: (){
               Navigator.pushNamed(context, "ImageRoute");
-            }, child: Text("Image route"))
+            }, child: Text("Image route")),
+            TextButton(onPressed: (){
+              Navigator.pushNamed(context, "ListViewRoute");
+            }, child: Text("ListView route")),
           ],
         ),
       ),
