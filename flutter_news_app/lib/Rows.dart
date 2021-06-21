@@ -102,7 +102,12 @@ class ImageRoute extends StatelessWidget {
                     image: AssetImage("images/1.png"),
                     width: 50
                 )
-            )
+            ),
+
+            Center(
+            child: Image.network("https://car0.autoimg.cn/upload/spec/4945/u_20120220072722314264.jpg", width: 200,height: 200,),
+            ),
+
 
           ],
         ),
