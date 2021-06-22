@@ -88,30 +88,78 @@ class ImageRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    // 头像
+    Widget avatar = Image.asset("images/1.png", width: 60.0);
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
         title: Text("image "),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 18.0),
-        child: Column(
-          children: [
+    ),
 
-            Center(
-               child: Image(
-                    image: AssetImage("images/1.png"),
-                    width: 50
-                )
+      body:
+        Padding (
+          padding: EdgeInsets.all(25),
+          child:  Center (
+            child: Column (
+              children: [
+                avatar,
+                Image.network("https://car0.autoimg.cn/upload/spec/4945/u_20120220072722314264.jpg", width: 200,height: 200,),
+
+
+                ClipRRect (
+                 borderRadius: BorderRadius.circular(15.0),
+                  child: avatar,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 25,bottom: 25),
+                  child: ClipOval(
+                    child: avatar,
+
+                  ),
+                ),
+                avatar,
+                Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ClipRect(
+                        child:  Align(
+                          alignment: Alignment.topLeft,
+                          widthFactor: 0.5,
+                          child: avatar,
+                        ),
+                      ),
+
+                      Text("右边边的文字！")
+                    ],
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: 25),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          widthFactor: 0.5,
+                          child: avatar,
+                        ),
+                        Text("右边边的文字！", style: TextStyle(color: Colors.red),)
+                      ],
+                    ),
+
+                ),
+
+
+
+
+              ],
             ),
-
-            Center(
-            child: Image.network("https://car0.autoimg.cn/upload/spec/4945/u_20120220072722314264.jpg", width: 200,height: 200,),
-            ),
+          ),
+        )
 
 
-          ],
-        ),
-      ),
     );
   }
 
