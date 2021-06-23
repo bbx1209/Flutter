@@ -16,13 +16,71 @@ class NewRoute extends StatelessWidget {
       appBar: AppBar (
         title: Text("New  Route"),
       ),
-      body: Center (
-        child: Text("This is new route"),
+      body: Column (
+        children: [
+          Center (
+            child: Text("This is new route"),
+          ),
+          Center (
+            child: ItemView(),
+          ),
+
+          
+          Container(
+            transform: Matrix4.rotationZ(.2),
+            padding: EdgeInsets.all(25.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12.0),
+              child: Image.asset("images/1.png"),
+            ),
+          )
+        ],
       ),
+
+
+
     );
   }
 
 }
+
+class ItemView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(padding: EdgeInsets.all(15.0),
+    child: Container(
+//      decoration: BoxDecoration(
+//        boxShadow: [
+//          BoxShadow(color: Colors.grey ,offset: Offset(2.0,2.0), blurRadius: 4.0)
+//        ]
+//      ),
+      height: 65.0,
+      child: Row(
+        children: [
+          Image.asset("images/1.png",width: 50.0, height: 50.0,),
+          Padding(padding: const EdgeInsets.all(10.0),
+
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                    Expanded(
+                        child:Text("Item title gsfgsdfgsdfgsdfgsdfgsdfgvbxvbghdfgh", style: TextStyle(fontSize: 18.0, color: Colors.red),overflow: TextOverflow.ellipsis,maxLines: 1,),
+                ),
+                    Expanded(child: Text("Item sub title")),
+
+
+                ],
+              ),
+
+          ),
+        ],
+      ),
+    ),
+    );
+  }
+}
+
+
 
 
 class MyApp extends StatelessWidget {

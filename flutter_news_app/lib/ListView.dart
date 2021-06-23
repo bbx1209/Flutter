@@ -19,13 +19,20 @@ class ListViewRoute extends StatelessWidget {
         child: IconTheme(
             data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
           child: Row (
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              IconButton(icon: const Icon(Icons.menu), onPressed: (){
-                print("press menu");
-              },color: Colors.blue,) ,
-              IconButton(icon: const Icon(Icons.add), onPressed: (){
-                print("press add");
-              } ,color: Colors.blue,),
+              Padding(
+                padding: const EdgeInsets.only(right: 50.0),
+                child: IconButton(icon: const Icon(Icons.menu), onPressed: (){
+                  print("press menu");
+                },color: Colors.blue,),
+              ) ,
+              Padding(
+                padding: const EdgeInsets.only(left: 50.0),
+                child: IconButton(icon: const Icon(Icons.add), onPressed: (){
+                  print("press add");
+                } ,color: Colors.blue,),
+              ),
             ],
           ),
         ),
