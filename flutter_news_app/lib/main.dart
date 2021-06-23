@@ -17,15 +17,15 @@ class NewRoute extends StatelessWidget {
         title: Text("New  Route"),
       ),
       body: Column (
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center (
             child: Text("This is new route"),
           ),
-          Center (
-            child: ItemView(),
-          ),
 
-          
+          ItemView(),
+
+
           Container(
             transform: Matrix4.rotationZ(.2),
             padding: EdgeInsets.all(25.0),
@@ -54,19 +54,24 @@ class ItemView extends StatelessWidget {
 //          BoxShadow(color: Colors.grey ,offset: Offset(2.0,2.0), blurRadius: 4.0)
 //        ]
 //      ),
-      height: 65.0,
+      height: 85.0,
+
       child: Row(
         children: [
-          Image.asset("images/1.png",width: 50.0, height: 50.0,),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16.0),
+            child: Image.asset("images/1.png"),
+          ),
+          
           Padding(padding: const EdgeInsets.all(10.0),
 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                     Expanded(
-                        child:Text("Item title gsfgsdfgsdfgsdfgsdfgsdfgvbxvbghdfgh", style: TextStyle(fontSize: 18.0, color: Colors.red),overflow: TextOverflow.ellipsis,maxLines: 1,),
-                ),
-                    Expanded(child: Text("Item sub title")),
+                        child:Text("Item title gsfgsgvbxvbgh工号地方搞活动覆盖和dfgh", style: TextStyle(fontSize: 18.0, color: Colors.red),overflow: TextOverflow.ellipsis,maxLines: 1,),
+                          ),
+                      Text("Item sub title"),
 
 
                 ],
