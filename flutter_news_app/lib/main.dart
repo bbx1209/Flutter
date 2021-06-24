@@ -45,43 +45,62 @@ class NewRoute extends StatelessWidget {
 }
 
 class ItemView extends StatelessWidget {
+
+
+
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.all(15.0),
-    child: Container(
+    var screenWidth = MediaQuery.of(context).size.width;
+
+    return Container(
 //      decoration: BoxDecoration(
 //        boxShadow: [
 //          BoxShadow(color: Colors.grey ,offset: Offset(2.0,2.0), blurRadius: 4.0)
 //        ]
 //      ),
       height: 85.0,
+      width: screenWidth,
+      child: Padding(
+        padding: EdgeInsets.all(3.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: Image.asset("images/1.png",
+              width: 50,
+              height: 50,),
+            ),
 
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(16.0),
-            child: Image.asset("images/1.png"),
-          ),
-          
-          Padding(padding: const EdgeInsets.all(10.0),
+            Padding(padding: const EdgeInsets.all(10.0),
 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                    Expanded(
-                        child:Text("Item title gsfgsgvbxvbgh工号地方搞活动覆盖和dfgh", style: TextStyle(fontSize: 18.0, color: Colors.red),overflow: TextOverflow.ellipsis,maxLines: 1,),
-                          ),
-                      Text("Item sub title"),
+
+                  Container(
+                      width: (screenWidth-175),
+                      child: Text("Item title gsfgsgvbxvbgh工号地方搞活动覆盖和dgsdfgsfdgsgsfgsfgsfgsfgsfgfgh",
+                        style: TextStyle(fontSize: 18.0, color: Colors.red),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        textAlign: TextAlign.left,
+                      )
+                  ),
+
+                  Text("Item sub title 撒打发斯蒂芬"),
 
 
                 ],
               ),
 
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
-    ),
     );
+
   }
 }
 
