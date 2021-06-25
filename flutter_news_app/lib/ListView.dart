@@ -1,4 +1,5 @@
 import 'package:english_words/english_words.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -11,7 +12,8 @@ class ListViewRoute extends StatelessWidget {
        title: Text("List View Route"),
   ),
       body: Center(
-        child: InfinitedListView(),
+//        child: InfinitedListView(),
+      child: CollectionView(),
       ),
 
       bottomNavigationBar: BottomAppBar (
@@ -124,3 +126,29 @@ class _InfinitedListViewState extends State<InfinitedListView> {
   }
 
 }
+
+
+class CollectionView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GridView(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        childAspectRatio: 1.0
+      ),
+      children: [
+        Icon(Icons.ac_unit),
+        Icon(Icons.airport_shuttle),
+        Icon(Icons.all_inclusive),
+
+        Icon(Icons.beach_access),
+
+        Icon(Icons.cake),
+
+        Icon(Icons.free_breakfast),
+
+      ],
+    );
+  }
+}
+

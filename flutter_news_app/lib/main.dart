@@ -8,24 +8,20 @@ void main() {
 }
 
 class NewRoute extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar (
+      appBar: AppBar(
         title: Text("New  Route"),
       ),
-      body: Column (
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center (
+          Center(
             child: Text("This is new route"),
           ),
-
           ItemView(),
-
-
           Container(
             transform: Matrix4.rotationZ(.2),
             padding: EdgeInsets.all(25.0),
@@ -33,31 +29,38 @@ class NewRoute extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.0),
               child: Image.asset("images/1.png"),
             ),
-          )
+          ),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: 50,
+              minWidth: 50,
+            ),
+            child: redBox,
+          ),
+          Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: SizedBox(
+                height: 50.0,
+                width: 50.0,
+                child: redBox,
+              )),
         ],
       ),
-
-
-
     );
   }
-
 }
 
 class ItemView extends StatelessWidget {
-
-
-
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-//      decoration: BoxDecoration(
+      decoration: BoxDecoration(
 //        boxShadow: [
 //          BoxShadow(color: Colors.grey ,offset: Offset(2.0,2.0), blurRadius: 4.0)
 //        ]
-//      ),
+          color: Colors.cyan),
       height: 85.0,
       width: screenWidth,
       child: Padding(
@@ -67,45 +70,42 @@ class ItemView extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
-              child: Image.asset("images/1.png",
-              width: 50,
-              height: 50,),
+              child: Image.asset(
+                "images/1.png",
+                width: 50,
+                height: 50,
+              ),
             ),
-
-            Padding(padding: const EdgeInsets.all(10.0),
-
+            Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   Container(
-                      width: (screenWidth-175),
-                      child: Text("Item title gsfgsgvbxvbgh工号地方搞活动覆盖和dgsdfgsfdgsgsfgsfgsfgsfgsfgfgh",
+                      // text需要给出一个宽度，否则会有溢出警告
+                      width: (screenWidth - 175),
+                      child: Text(
+                        "Item title gsfgsgvbxvbgh工号地方搞活动覆盖和dgsdfgsfdgsgsfgsfgsfgsfgsfgfgh",
                         style: TextStyle(fontSize: 18.0, color: Colors.red),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         textAlign: TextAlign.left,
-                      )
-                  ),
-
+                      )),
                   Text("Item sub title 撒打发斯蒂芬"),
-
-
                 ],
               ),
-
             ),
           ],
         ),
       ),
     );
-
   }
 }
 
-
-
+Widget redBox = DecoratedBox(
+  decoration: BoxDecoration(color: Colors.red),
+);
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -114,17 +114,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.red,
       ),
-
       routes: {
-        "newRoute":(context) => NewRoute(),
-        "RowRoute":(context) => RowRoute(text: "来自注册路由"),
-        "ImageRoute":(context) => ImageRoute(),
-        "ListViewRoute" :(context) => ListViewRoute()
+        "newRoute": (context) => NewRoute(),
+        "RowRoute": (context) => RowRoute(text: "来自注册路由"),
+        "ImageRoute": (context) => ImageRoute(),
+        "ListViewRoute": (context) => ListViewRoute()
       },
-
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -150,15 +147,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
@@ -168,37 +162,41 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            FlatButton (
+            FlatButton(
               child: Text("open new route"),
               textColor: Colors.blue,
-              onPressed: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context){
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return NewRoute();
                 }));
               },
             ),
-            OutlinedButton (
-              child: Text("pass value"),
-             onPressed:() async {
-               var result =  await Navigator.push(context,
-                MaterialPageRoute(builder: (context){
-                  return RowRoute(text: "我是传过去的哦",);
-                }));
-               print("这是个回调值：$result");
-
-              }
-            ),
-            TextButton(onPressed: (){
-              Navigator.pushNamed(context, "RowRoute");
-            }, child: Text("注册路由")),
-
-            TextButton(onPressed: (){
-              Navigator.pushNamed(context, "ImageRoute");
-            }, child: Text("Image route")),
-            TextButton(onPressed: (){
-              Navigator.pushNamed(context, "ListViewRoute");
-            }, child: Text("ListView route")),
+            OutlinedButton(
+                child: Text("pass value"),
+                onPressed: () async {
+                  var result = await Navigator.push(context,
+                      MaterialPageRoute(builder: (context) {
+                    return RowRoute(
+                      text: "我是传过去的哦",
+                    );
+                  }));
+                  print("这是个回调值：$result");
+                }),
+            TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "RowRoute");
+                },
+                child: Text("注册路由")),
+            TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "ImageRoute");
+                },
+                child: Text("Image route")),
+            TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "ListViewRoute");
+                },
+                child: Text("ListView route")),
           ],
         ),
       ),
