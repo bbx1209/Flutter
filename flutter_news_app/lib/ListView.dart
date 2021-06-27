@@ -146,8 +146,13 @@ class CollectionView extends StatelessWidget {
         Icon(Icons.cake),
 
         Icon(Icons.free_breakfast),
+        
+        TextButton(onPressed: (){
+          print("click button")
+        }, child: Text("Click"))
 
       ],
+      
     );
   }
 }
