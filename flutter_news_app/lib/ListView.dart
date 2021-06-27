@@ -148,7 +148,7 @@ class CollectionView extends StatelessWidget {
         Icon(Icons.free_breakfast),
         
         TextButton(onPressed: (){
-          print("click button")
+          print("click button");
         }, child: Text("Click"))
 
       ],
