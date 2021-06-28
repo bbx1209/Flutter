@@ -171,18 +171,24 @@ class ItemButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return  TextButton(onPressed: (){
-
-    _selectedItem(this);
+    return TextButton(onPressed: () {
+      _selectedItem(this);
+      selectedAItem();
 //  _selectedItemTitle(this.title);
-  }, child: Text("$title"));
+    }, child: Text("$title"));
   }
+
+  void selectedAItem() {
+    print(this.title);
+  }
+
 }
 
- void _selectedItem(ItemButton item) {
-//  print("$item.title");
- print(item.title);
+void _selectedItem(ItemButton item) {
+  print("${item.title}");
+// print(item.title);
 }
+
 void _selectedItemTitle(String title) {
   print(title);
 }
