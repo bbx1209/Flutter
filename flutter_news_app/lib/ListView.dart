@@ -149,11 +149,37 @@ class CollectionView extends StatelessWidget {
         
         TextButton(onPressed: (){
           print("click button");
-        }, child: Text("Click"))
+        }, child: Text("Click")),
+
+        ItemButton(title: "Item1"),
+        ItemButton(title: "Item2"),
 
       ],
       
     );
   }
 }
+
+class ItemButton extends StatelessWidget {
+
+  ItemButton({
+    Key key,
+    @required this.title
+  }) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+  return  TextButton(onPressed: (){
+
+    _selectedItem(this);
+  }, child: Text("$title"));
+  }
+}
+
+ void _selectedItem(ItemButton item) {
+  print("$item.title");
+}
+
 
