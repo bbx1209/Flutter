@@ -174,12 +174,17 @@ class ItemButton extends StatelessWidget {
   return  TextButton(onPressed: (){
 
     _selectedItem(this);
+//  _selectedItemTitle(this.title);
   }, child: Text("$title"));
   }
 }
 
  void _selectedItem(ItemButton item) {
-  print("$item.title");
+//  print("$item.title");
+ print(item.title);
+}
+void _selectedItemTitle(String title) {
+  print(title);
 }
 
 
