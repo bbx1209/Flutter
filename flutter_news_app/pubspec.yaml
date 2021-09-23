@@ -52,6 +52,26 @@ flutter:
   assets:
     - images/1.png
     - images/2.png
+    - images/faxian.png
+    - images/faxian_press.png
+    - images/holder_image.png
+    - images/load_error.png
+    - images/mao.png
+    - images/maocao.png
+    - images/maodoumaobang.png
+    - images/maoliang.png
+    - images/maotiao.png
+    - images/maoxiaoyugan.png
+    - images/maozhuaban.png
+    - images/tongxunlu.png
+    - images/tongxunlu_press.png
+    - images/walk1.png
+    - images/walk2.png
+    - images/walk3.png
+    - images/walk4.png
+    - images/weixin_press.png
+    - images/wo.png
+    - images/wo_press.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
