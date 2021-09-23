@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_news_app/Rows.dart';
 import 'package:flutter_news_app/ListView.dart';
+import 'package:flutter_news_app/Section/Home/Home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Home());
 }
 
 class NewRoute extends StatelessWidget {
