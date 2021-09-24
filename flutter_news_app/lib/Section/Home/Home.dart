@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:toast/toast.dart';
 
 import '../../main.dart';
+
 
 class Home extends StatelessWidget {
   @override
@@ -32,17 +34,35 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-
-          ],
-        ),
-      ),
+          child: ListView.builder(
+        itemCount: 50,
+        itemExtent: 50,
+        itemBuilder: (BuildContext context, int index) {
+          return getItem(index);
+        },
+      )),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+   Widget getItem(int index) {
+    return GestureDetector(
+      child: Container(
+        child: Text("$index"),
+        height: 50,
+      ),
+      onTap: (){
+        setState(() {
+          onItemClick(index);
+        });
+      },
+    );
+   }
+
+  void onItemClick(int index) {
+    Toast.show("点击了底$index 行", this.context);
   }
 }
