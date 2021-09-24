@@ -1,5 +1,6 @@
 
 import 'package:flutter_news_app/Base/RoutParam.dart';
+import 'package:flutter_news_app/Section/Merterial/Merterial.dart';
 
 import '../ListView.dart';
 
@@ -8,6 +9,7 @@ class HomeDataProvider {
     List<RouteItem> items = [
 
       RouteItem("列表", ListViewRoute()),
+      RouteItem("页面元素", MerterialRoute()),
 
     ];
     return items;
