@@ -1,8 +1,8 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/Base/HomeDataProvider.dart';
+import 'package:flutter_news_app/Base/RoutParam.dart';
 import 'package:toast/toast.dart';
-
-import '../../main.dart';
-
 
 class Home extends StatelessWidget {
   @override
@@ -11,9 +11,9 @@ class Home extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.cyan,
+        scaffoldBackgroundColor: Colors.white,
       ),
-      home: HomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(title: 'Flutter Home Page'),
     );
   }
 }
@@ -27,18 +27,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+   List<RouteItem> _items = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _items = getItems();
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-          child: ListView.builder(
-        itemCount: 50,
-        itemExtent: 50,
+          child: ListView.separated(
+        itemCount: _items.length,
         itemBuilder: (BuildContext context, int index) {
-          return getItem(index);
+          var item = _items[index];
+          return getItem(index, item);
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return Padding(padding: EdgeInsets.only(left: 25),child: Divider(color: Colors.black38));
         },
       )),
       floatingActionButton: FloatingActionButton(
@@ -48,21 +62,33 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-   Widget getItem(int index) {
+  Widget getItem(int index, RouteItem item) {
     return GestureDetector(
       child: Container(
-        child: Text("$index"),
+        child: Center(
+          child: Text("${item.title}"),
+        ),
         height: 50,
+        color: Colors.white,
       ),
-      onTap: (){
+      onTap: () {
         setState(() {
-          onItemClick(index);
+          onItemClick(item);
         });
       },
     );
-   }
-
-  void onItemClick(int index) {
-    Toast.show("点击了底$index 行", this.context);
   }
+
+  void onItemClick(RouteItem item) {
+    Toast.show("点击了 ${item.title} ", this.context);
+    Navigator.push(this.context, MaterialPageRoute(builder: (context){
+      return item.newRoute;
+    }));
+  }
+
+
+  List<RouteItem> getItems() {
+    return HomeDataProvider.getHomeItems();
+  }
+
 }

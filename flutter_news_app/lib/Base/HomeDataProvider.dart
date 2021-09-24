@@ -4,10 +4,9 @@ import 'package:flutter_news_app/Base/RoutParam.dart';
 import '../ListView.dart';
 
 class HomeDataProvider {
-  static List<RouteItem> getHomeItems() {
+   static List<RouteItem> getHomeItems() {
     List<RouteItem> items = [
 
-      RouteItem("列表", ListViewRoute()),
       RouteItem("列表", ListViewRoute()),
 
     ];
