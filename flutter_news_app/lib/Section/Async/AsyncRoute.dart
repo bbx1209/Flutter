@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+
+const oneSecond = Duration(seconds: 1);
+
 class AsyncRoute extends StatefulWidget {
   const AsyncRoute({Key key}) : super(key: key);
 
