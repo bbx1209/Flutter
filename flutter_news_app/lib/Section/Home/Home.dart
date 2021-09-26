@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Base/HomeDataProvider.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
@@ -27,19 +26,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-   List<RouteItem> _items = [];
+  List<RouteItem> _items = [];
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _items = getItems();
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -52,13 +48,11 @@ class _HomePageState extends State<HomePage> {
           return getItem(index, item);
         },
         separatorBuilder: (BuildContext context, int index) {
-          return Padding(padding: EdgeInsets.only(left: 25),child: Divider(color: Colors.black38));
+          return Padding(
+              padding: EdgeInsets.only(left: 25),
+              child: Divider(color: Colors.black38));
         },
       )),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
@@ -81,14 +75,12 @@ class _HomePageState extends State<HomePage> {
 
   void onItemClick(RouteItem item) {
     Toast.show("点击了 ${item.title} ", this.context);
-    Navigator.push(this.context, MaterialPageRoute(builder: (context){
+    Navigator.push(this.context, MaterialPageRoute(builder: (context) {
       return item.newRoute;
     }));
   }
 
-
   List<RouteItem> getItems() {
     return HomeDataProvider.getHomeItems();
   }
-
 }
