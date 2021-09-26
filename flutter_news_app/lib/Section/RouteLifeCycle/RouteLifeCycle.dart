@@ -16,6 +16,9 @@ import 'package:toast/toast.dart';
 *
 * setState 方法调用之后会重走 build 方法
 *
+* push 到新页面前 当前页面会 build 一次
+* 从后台唤醒或者上层页面 pop回来,当前页面不会 build.  感觉哪里不对
+*
 */
 
 
@@ -87,11 +90,34 @@ class _StatefulRouteCycleState extends State<StatefulRouteCycle> {
               });
           },
               icon: Icon(Icons.update), label:
-              Text("更新按钮"))
+              Text("更新按钮")),
+          TextButton.icon(
+              onPressed: (){setState(() {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext mContext) {
+                  return RouteLifeCycleNewRoute();
+                }));
+              });
+              },
+              icon: Icon(Icons.accessibility_sharp), label:
+          Text("push new route")),
         ],
       ),
     ),
     );
   }
 }
+
+class RouteLifeCycleNewRoute extends StatelessWidget {
+  const RouteLifeCycleNewRoute({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("RouteLifeCycleNewRoute"),
+      ),
+    );
+  }
+}
+
 
