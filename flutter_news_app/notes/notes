@@ -1,0 +1,9 @@
+
+布局类组件:
+RenderObjectWidget: LeafRenderObjectWidget ,SingleChildRenderWidget ,MultiChildRenderObjectWidget
+
+1.线性布局 Row ,Column , 继承自Flex
+2.弹性布局, Flex, Expanded (按比例伸缩 Row olunm Flex 子组件所占用的空间)C,  Spacer:Expanded的封装
+3.流式布局(解决溢出问题), Wrap ,Flow
+4.叠层布局, Stack Positioned, 解决精准偏移,定位
+5.对齐 Align, Center(继承自Align)
