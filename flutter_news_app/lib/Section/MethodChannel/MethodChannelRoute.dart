@@ -30,7 +30,8 @@ class _MethodChannelRouteState extends State<MethodChannelRoute> {
                     _getInfomationFromNative();
                   });
                 },
-                child: Text("获取信息"))
+                child: Text("获取信息")),
+
           ],
         ),
       ),
