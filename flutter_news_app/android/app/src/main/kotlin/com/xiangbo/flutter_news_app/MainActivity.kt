@@ -9,7 +9,7 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugins.GeneratedPluginRegistrant
 import io.flutter.util.ViewUtils
 
-class MainActivity: FlutterActivity() {
+class MainActivity : FlutterActivity() {
 
     private val CHANNEL = "helloworld.flutter.io/info"
 
@@ -18,8 +18,6 @@ class MainActivity: FlutterActivity() {
         flutterEngine?.let { GeneratedPluginRegistrant.registerWith(it) }
 
     }
-
-
 
 
 }
