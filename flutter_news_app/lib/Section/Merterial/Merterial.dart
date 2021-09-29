@@ -5,6 +5,8 @@ import 'package:flutter_news_app/Base/RoutParam.dart';
 import 'package:flutter_news_app/main.dart';
 import 'package:toast/toast.dart';
 
+import 'TextRoute.dart';
+
 List<RouteItem> getMertialItems() {
   List<RouteItem> items = [
     RouteItem("TextRoute", TextRoute()),
@@ -63,39 +65,3 @@ class MerterialRoute extends StatelessWidget {
 
 }
 
-class TextRoute extends StatelessWidget {
-  TextRoute({Key key}) : super(key: key);
-  TapGestureRecognizer _tapGestureRecognizer = new TapGestureRecognizer();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("TextRoute"),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            Text("simple text"),
-            Text("simple text",
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.blue,
-                    backgroundColor: Colors.black26)),
-            Text.rich(TextSpan(children: [
-              TextSpan(text: "Text span"),
-              TextSpan(
-                  text: "12131313",
-                  style: TextStyle(
-                      color: Colors.blue, decoration: TextDecoration.underline),
-                  recognizer: _tapGestureRecognizer
-                    ..onTap = () {
-                      Toast.show("12131313", context);
-                    })
-            ]))
-          ],
-        ),
-      ),
-    );
-  }
-}
