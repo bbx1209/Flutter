@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
 import 'package:flutter_news_app/Section/Merterial/ButtonRoute.dart';
+import 'package:flutter_news_app/Section/Merterial/FormRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/ImageRoute.dart';
 import 'package:flutter_news_app/main.dart';
 import 'package:toast/toast.dart';
@@ -14,6 +15,7 @@ List<RouteItem> getMertialItems() {
     RouteItem("TextRoute", TextRoute()),
     RouteItem("ImageRoute", ImageRoute()),
     RouteItem("ButtonRoute", ButtonRoute()),
+    RouteItem("FormRoute", FormRoute()),
   ];
   return items;
 }
