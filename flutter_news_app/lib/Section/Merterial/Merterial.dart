@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
+import 'package:flutter_news_app/Section/Merterial/ButtonRoute.dart';
+import 'package:flutter_news_app/Section/Merterial/ImageRoute.dart';
 import 'package:flutter_news_app/main.dart';
 import 'package:toast/toast.dart';
 
@@ -10,6 +12,8 @@ import 'TextRoute.dart';
 List<RouteItem> getMertialItems() {
   List<RouteItem> items = [
     RouteItem("TextRoute", TextRoute()),
+    RouteItem("ImageRoute", ImageRoute()),
+    RouteItem("ButtonRoute", ButtonRoute()),
   ];
   return items;
 }
