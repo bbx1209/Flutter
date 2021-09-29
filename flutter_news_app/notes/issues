@@ -1,0 +1,4 @@
+
+遗留的问题
+
+ 1.  Android 插件没有实现，MethodChannel 实例化失败
