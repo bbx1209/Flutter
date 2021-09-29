@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xiangbo.flutter_news_app">
+    package="com.example.flutter_news_app">
    <application
         android:label="flutter_news_app"
         android:icon="@mipmap/ic_launcher">
