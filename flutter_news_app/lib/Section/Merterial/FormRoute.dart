@@ -92,7 +92,30 @@ class _FormRouteState extends State<FormRoute> {
                 ),
               ],
             ),
-          )
+          ),
+          Builder(builder: (cnt) {
+            return Column(
+              children: [
+                Theme(
+                    data: Theme.of(cnt).copyWith(
+                      hintColor: Colors.grey[200],
+                    ),
+                    child: Column(
+                      children: [
+                        TextField(
+                          autofocus: true,
+                          decoration: InputDecoration(
+                              labelText: "用户名",
+                              hintText: "请输入用户名或者邮箱",
+                              prefixIcon: Icon(Icons.person)),
+                          controller: _editingController,
+                          focusNode: _node1,
+                        ),
+                      ],
+                    ))
+              ],
+            );
+          })
         ],
       ),
     );
