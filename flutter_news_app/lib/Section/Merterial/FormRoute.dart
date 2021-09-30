@@ -11,6 +11,9 @@ class _FormRouteState extends State<FormRoute> {
   TextEditingController _editingController = TextEditingController();
   TextEditingController _secureEC = TextEditingController();
   TextEditingController _defaultEC = TextEditingController();
+  FocusNode _node1 = FocusNode();
+  FocusNode _node2 = FocusNode();
+  FocusScopeNode _scopeNode;
 
   @override
   void initState() {
@@ -43,16 +46,25 @@ class _FormRouteState extends State<FormRoute> {
                 hintText: "请输入用户名或者邮箱",
                 prefixIcon: Icon(Icons.person)),
             controller: _editingController,
+            focusNode: _node1,
           ),
           TextField(
             decoration: InputDecoration(
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
                 labelText: "密码",
                 hintText: "请输密码",
                 prefixIcon: Icon(Icons.lock)),
+
             // obscureText: true,
             keyboardType: TextInputType.numberWithOptions(),
             keyboardAppearance: Brightness.light,
             controller: _secureEC,
+            focusNode: _node2,
           ),
           TextField(
             decoration:
@@ -64,11 +76,19 @@ class _FormRouteState extends State<FormRoute> {
               children: [
                 TextButton(
                   child: Text("移动焦点"),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (null == _scopeNode) {
+                      _scopeNode = FocusScope.of(context);
+                    }
+                    _scopeNode.requestFocus(_node2);
+                  },
                 ),
                 TextButton(
                   child: Text("隐藏键盘"),
-                  onPressed: () {},
+                  onPressed: () {
+                    _node1.unfocus();
+                    _node2.unfocus();
+                  },
                 ),
               ],
             ),
