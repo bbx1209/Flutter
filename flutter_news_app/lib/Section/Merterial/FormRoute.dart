@@ -14,6 +14,7 @@ class _FormRouteState extends State<FormRoute> {
   FocusNode _node1 = FocusNode();
   FocusNode _node2 = FocusNode();
   FocusScopeNode _scopeNode;
+  GlobalKey _globalKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -98,8 +99,13 @@ class _FormRouteState extends State<FormRoute> {
               children: [
                 Theme(
                     data: Theme.of(cnt).copyWith(
-                      hintColor: Colors.grey[200],
-                    ),
+                        hintColor: Colors.grey[200],
+                        inputDecorationTheme: InputDecorationTheme(
+                            labelStyle: TextStyle(color: Colors.grey),
+                            //定义label字体样式
+                            hintStyle: TextStyle(
+                                color: Colors.grey, fontSize: 14.0) //定义提示文本样式
+                            )),
                     child: Column(
                       children: [
                         TextField(
@@ -108,12 +114,30 @@ class _FormRouteState extends State<FormRoute> {
                               labelText: "用户名",
                               hintText: "请输入用户名或者邮箱",
                               prefixIcon: Icon(Icons.person)),
-                          controller: _editingController,
-                          focusNode: _node1,
                         ),
                       ],
                     ))
               ],
+            );
+          }),
+          Builder(builder: (cnt) {
+            return Form(
+              child: Column(
+                children: [
+                  TextFormField(
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      labelText: "用户名",
+                      hintText: "用户名或邮箱",
+                      icon: Icon(Icons.person),
+                    ),
+                    // 校验用户名
+                    validator: (v) {
+                      return v.trim().length > 0 ? null : "用户名不能为空";
+                    },
+                  )
+                ],
+              ),
             );
           })
         ],
