@@ -1,0 +1,50 @@
+
+----基础组件----
+1.Text ,TextSpan
+2.按钮
+3.Image
+4.单选开关与复选框
+5.输入框与表单, TextField ,Form
+6.进度指示器  LinearProgressIndicator,CircularProgressIndicator
+
+----布局类组件:----
+RenderObjectWidget: LeafRenderObjectWidget ,SingleChildRenderWidget ,MultiChildRenderObjectWidget
+
+1.线性布局 Row ,Column , 继承自Flex
+2.弹性布局, Flex, Expanded (按比例伸缩 Row Colunm Flex 子组件所占用的空间)C,  Spacer:Expanded的封装
+3.流式布局(解决溢出问题), Wrap ,Flow
+4.叠层布局, Stack Positioned, 解决精准偏移,定位
+5.对齐 Align, Center(继承自Align)
+
+----容器类组件----
+
+1.填充 Padding
+2.尺寸限制类容器 ConstrainedBox , SizeBox ,UnconstrainedBox, 其他尺寸类容器
+3.装饰类容器 ,DecoratedBox
+4.Transform
+5.Container
+6.Scaffold , AppBar ,抽屉菜单,底部导航栏
+7.Clip
+8.FittedBox
+
+----可滚动组件----
+1.SingleChildScrollView
+2.ListView
+3.GridView
+4.PageView
+5.TabBarView
+6.CustomScrollView 和 Slivers
+7.滚动监听及控制 ScrollController
+
+----功能性组件----
+
+---- 事件总线与手势 ----
+
+---- 动画 ----
+
+---- 自定义组件 ----
+
+---- 文件操作与http请求 ----
+
+---- 包与插件 ----
+
