@@ -27,7 +27,12 @@ class ButtonRoute extends StatelessWidget {
               ElevatedButton.icon(onPressed: (){}, icon: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 child:  Image.asset("images/1.png"),
-              ), label: Text(""))
+              ), label: Text("")),
+              OutlinedButton(
+              style: ButtonStyle(
+              backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blue[200]),
+              ),
+                  onPressed: (){}, child: Text("outed line button")),
             ],
           ),
         ));
