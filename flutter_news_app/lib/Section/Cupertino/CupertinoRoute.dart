@@ -33,7 +33,8 @@ class _CupertinoRouteState extends State<CupertinoRoute> {
                       setState(() {
                         _switchSelected = value;
                       });
-                    })
+                    }),
+
               ],
             ),
           ),
