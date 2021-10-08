@@ -10,6 +10,7 @@ import 'package:toast/toast.dart';
 
 import 'CheckBoxRoute.dart';
 import 'Indicator.dart';
+import 'SizeBoxRoute.dart';
 import 'TextRoute.dart';
 
 List<RouteItem> getMertialItems() {
@@ -20,6 +21,7 @@ List<RouteItem> getMertialItems() {
     RouteItem("FormRoute", FormRoute()),
     RouteItem("CheckBoxRoute", CheckBoxRoute()),
     RouteItem("IndicatorRoute", IndicatorRoute()),
+    RouteItem("SizeBoxRoute", SizeBoxRoute()),
 
   ];
   return items;
