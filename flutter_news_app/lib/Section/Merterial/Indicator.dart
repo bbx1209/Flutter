@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class IndicatorRoute extends StatefulWidget {
@@ -19,27 +17,33 @@ class _IndicatorRouteState extends State<IndicatorRoute> {
       body: Center(
         child: Column(
           children: [
-            Padding(padding: EdgeInsets.all(25),
-              child: LinearProgressIndicator(
-                backgroundColor: Colors.red,
-                value: 0.3,
-                color: Colors.blue,
-              )
-            ),
-            Padding(padding: EdgeInsets.all(25),
+            Padding(
+                padding: EdgeInsets.all(25),
+                child: LinearProgressIndicator(
+                  backgroundColor: Colors.red,
+                  value: 0.3,
+                  color: Colors.blue,
+                )),
+            Padding(
+                padding: EdgeInsets.all(25),
                 child: LinearProgressIndicator(
                   backgroundColor: Colors.red,
                   valueColor: AlwaysStoppedAnimation(Colors.blue),
                   color: Colors.blue,
-                )
+                )),
+            CircularProgressIndicator(
+              backgroundColor: Colors.red,
+              value: 0.5,
+              color: Colors.blue,
+              semanticsLabel: "circular",
             ),
-          CircularProgressIndicator(
-            backgroundColor: Colors.red,
-            value: 0.5,
-            color: Colors.blue,
-            semanticsLabel: "circular",
-          ),
-
+            Padding(
+                padding: EdgeInsets.all(25),
+                child: CircularProgressIndicator(
+                  backgroundColor: Colors.red,
+                  // color: Colors.blue,
+                  valueColor: AlwaysStoppedAnimation(Colors.blue),
+                )),
           ],
         ),
       ),
