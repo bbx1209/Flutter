@@ -9,6 +9,7 @@ import 'package:flutter_news_app/main.dart';
 import 'package:toast/toast.dart';
 
 import 'CheckBoxRoute.dart';
+import 'Indicator.dart';
 import 'TextRoute.dart';
 
 List<RouteItem> getMertialItems() {
@@ -18,6 +19,7 @@ List<RouteItem> getMertialItems() {
     RouteItem("ButtonRoute", ButtonRoute()),
     RouteItem("FormRoute", FormRoute()),
     RouteItem("CheckBoxRoute", CheckBoxRoute()),
+    RouteItem("IndicatorRoute", IndicatorRoute()),
 
   ];
   return items;

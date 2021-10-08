@@ -28,7 +28,7 @@ class _CupertinoRouteState extends State<CupertinoRoute> {
                     onPressed: () {}),
                 CupertinoSwitch(
                     value: _switchSelected,
-                    activeColor: Colors.blue,
+                    activeColor: CupertinoColors.activeGreen,
                     onChanged: (value) {
                       setState(() {
                         _switchSelected = value;
