@@ -1,4 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/Base/RoutParam.dart';
+import 'package:flutter_news_app/Section/Gesture/GestureDetectorRoute.dart';
+import 'package:toast/toast.dart';
+
+List<RouteItem> getMertialItems() {
+  List<RouteItem> items = [
+    RouteItem("GestureDetectorRoute", GestureDetectorRoute()),
+
+
+  ];
+  return items;
+}
+
+
+
 
 class GestureRoute extends StatefulWidget {
   const GestureRoute({Key key}) : super(key: key);
@@ -8,35 +23,49 @@ class GestureRoute extends StatefulWidget {
 }
 
 class _GestureRouteState extends State<GestureRoute> {
-  String _operation = "no gesture action";
-
+  List<RouteItem> items = [];
   @override
   Widget build(BuildContext context) {
+    items = getMertialItems();
     return Scaffold(
-        appBar: AppBar(
-          title: Text("GestureRoute"),
-        ),
-        body: Center(
-            child: GestureDetector(
-          child: Container(
-            alignment: Alignment.center,
-            color: Colors.blue,
-            width: 200,
-            height: 100,
-            child: Text(
-              _operation,
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          onTap: () => updateText("tap"),
-          onLongPress: () => updateText("long press"),
-          onDoubleTap: () => updateText("double tap"),
-        )));
+      appBar: AppBar(
+        title: Text("页面元素"),
+      ),
+      body: Center(
+          child: ListView.separated(
+            itemBuilder: (BuildContext buildContext, int index) {
+              var item = items[index];
+              return getItem(context, index, item);
+            },
+            separatorBuilder: (BuildContext buildContext, int index) {
+              return Padding(padding: EdgeInsets.only(left: 25),
+                child: Divider(color: Colors.black38,),);
+            },
+            itemCount: items.length,
+          )
+      ),
+    );
   }
 
-  updateText(String s) {
-    setState(() {
-      _operation = s;
-    });
+  Widget getItem(BuildContext context, int index, RouteItem item) {
+    return GestureDetector(
+      child: Container(
+        child: Center(
+          child: Text("${item.title}"),
+        ),
+        height: 45,
+        color: Colors.cyan,
+      ),
+      onTap:(){
+        onClickItem(context,item);
+      },
+    );
+  }
+
+  void onClickItem(BuildContext context,RouteItem item) {
+    Toast.show("点击了 ${item.title} ", context);
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return item.newRoute;
+    }));
   }
 }
