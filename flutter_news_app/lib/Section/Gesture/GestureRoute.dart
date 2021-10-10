@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
+import 'package:flutter_news_app/Section/Gesture/EventBusRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/GestureDetectorRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/MoveGestureRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/ScaleGestureRoute.dart';
@@ -10,6 +11,8 @@ List<RouteItem> getMertialItems() {
     RouteItem("GestureDetectorRoute", GestureDetectorRoute()),
     RouteItem("MoveGestureRoute", MoveGestureRoute()),
     RouteItem("ScaleGestureRoute", ScaleGestureRoute()),
+    RouteItem("EventBusRoute", EventBusRoute()),
+
 
   ];
   return items;
