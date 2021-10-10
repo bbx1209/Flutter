@@ -66,7 +66,7 @@ class ImageRoute extends StatelessWidget {
               return Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(9.0),
                     child: SizedBox(
                       width: 100,
                       child: e,
