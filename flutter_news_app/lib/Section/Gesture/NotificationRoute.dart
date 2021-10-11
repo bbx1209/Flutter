@@ -15,8 +15,8 @@ class _NotifyRouteState extends State<NotifyRoute> {
         title: Text("NotifyRoute"),
       ),
       body: NotificationListener(
-        onNotification: (not){
-          switch(not.runtimeType) {
+        onNotification: (not) {
+          switch (not.runtimeType) {
             case ScrollStartNotification:
               print("开始滚动");
               break;
@@ -33,13 +33,34 @@ class _NotifyRouteState extends State<NotifyRoute> {
           return true;
         },
         child: ListView.builder(
-            itemBuilder: (context, index){
-          return ListTile(title: Text("$index"),);
-        },
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text("$index"),
+            );
+          },
           itemCount: 50,
         ),
       ),
+    );
+  }
+}
 
+class NotifyRouteII extends StatelessWidget {
+  const NotifyRouteII({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("NotifyRouteII"),
+      ),
+      body: NotificationListener<ScrollEndNotification>(
+          onNotification: (notification) {
+        print("ScrollEndNotification end ++++");
+        return false;
+      }, child: ListView.builder(itemBuilder: (context, index) {
+        return ListTile(title: Text("$index"));
+      })),
     );
   }
 }

@@ -15,6 +15,7 @@ List<RouteItem> getMertialItems() {
     RouteItem("ScaleGestureRoute", ScaleGestureRoute()),
     RouteItem("EventBusRoute", EventBusRoute()),
     RouteItem("NotifyRoute", NotifyRoute()),
+    RouteItem("NotifyRouteII", NotifyRouteII()),
     RouteItem("CustonNotifyRoute", CustonNotifyRoute()),
 
 
