@@ -17,7 +17,7 @@ class _CustomScrollRouteState extends State<CustomScrollRoute> {
             pinned: true,
             expandedHeight: 250.0,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text("This is title"),
+              title: Text("This is title", style: TextStyle(color: Colors.black),),
               background: Image.asset("images/mao.png", fit: BoxFit.cover),
             ),
           ),
@@ -27,8 +27,8 @@ class _CustomScrollRouteState extends State<CustomScrollRoute> {
               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
                   mainAxisSpacing: 10.0,
                   crossAxisSpacing: 10.0,
-                  childAspectRatio: 4.0,
-                  crossAxisCount: 2),
+                  childAspectRatio: 1.0,
+                  crossAxisCount: 4),
               delegate: new SliverChildBuilderDelegate(
                 (context, index) {
                   return new Container(
