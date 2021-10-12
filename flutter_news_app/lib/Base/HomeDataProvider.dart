@@ -2,6 +2,7 @@
 import 'package:flutter_news_app/Base/RoutParam.dart';
 import 'package:flutter_news_app/Section/Async/AsyncRoute.dart';
 import 'package:flutter_news_app/Section/Cupertino/CupertinoRoute.dart';
+import 'package:flutter_news_app/Section/CustomScrollView/CustomScrollRoute.dart';
 import 'package:flutter_news_app/Section/DartLanguage/DartLanguageRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/GestureRoute.dart';
 import 'package:flutter_news_app/Section/Interface/ConstValue.dart';
@@ -23,6 +24,8 @@ class HomeDataProvider {
       RouteItem("CupertinoRoute", CupertinoRoute()),
       RouteItem("插件 Method channel", MethodChannelRoute()),
       RouteItem("手势", GestureRoute()),
+      RouteItem("CustomScrollRoute", CustomScrollRoute()),
+
       
     ];
     return items;
