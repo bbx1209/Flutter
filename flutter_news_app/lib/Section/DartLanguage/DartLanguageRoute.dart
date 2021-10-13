@@ -28,6 +28,12 @@ class DartLanguageRoute extends StatelessWidget {
                   asPerson(context);
                 },
                 child: Text("as person")),
+            TextButton(
+                onPressed: () {
+                  var writer = Writer();
+                  writer.makeMoney();
+                },
+                child: Text("mixins ")),
           ],
         ),
       ),
@@ -49,10 +55,13 @@ class DartLanguageRoute extends StatelessWidget {
   }
 
   void asPerson(BuildContext context) {
-    var chinese = Chinese();
+    var chinese = Chinese()
+          ..nationality = "sasdfa";
     (chinese as Chinese).nationality = "中国国籍";
     Toast.show("${chinese.nationality}", context);
   }
+
+
 }
 
 class Person {
@@ -62,6 +71,26 @@ class Person {
   String phone;
 }
 
-class Chinese extends Person {
+class Chinese extends Person  {
   String nationality;
 }
+
+class Writer extends Person with work {
+
+    @override
+  void makeMoney() {
+    // TODO: implement makeMoney
+    super.makeMoney();
+    print("writing");
+  }
+}
+
+mixin work {
+  String job;
+  double salary;
+  void makeMoney() {
+    print("makemoney by:");
+  }
+}
+
+
