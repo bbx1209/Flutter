@@ -23,6 +23,11 @@ class DartLanguageRoute extends StatelessWidget {
                   isPerson(context);
                 },
                 child: Text("is person")),
+            TextButton(
+                onPressed: () {
+                  asPerson(context);
+                },
+                child: Text("as person")),
           ],
         ),
       ),
@@ -41,6 +46,12 @@ class DartLanguageRoute extends StatelessWidget {
     if (chinese is Person) {
       Toast.show(" 是人类", context);
     }
+  }
+
+  void asPerson(BuildContext context) {
+    var chinese = Chinese();
+    (chinese as Chinese).nationality = "中国国籍";
+    Toast.show("${chinese.nationality}", context);
   }
 }
 
