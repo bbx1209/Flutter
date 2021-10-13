@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
@@ -14,23 +13,36 @@ class DartLanguageRoute extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-
+            TextButton(
+                onPressed: () {
+                  isChinese(context);
+                },
+                child: Text("is")),
+            TextButton(
+                onPressed: () {
+                  isPerson(context);
+                },
+                child: Text("is person")),
           ],
         ),
       ),
     );
   }
+
   void isChinese(BuildContext context) {
     var chinese = Chinese();
     if (chinese is Chinese) {
       Toast.show(" 是中国人 ", context);
     }
   }
+
+  void isPerson(BuildContext context) {
+    var chinese = Chinese();
+    if (chinese is Person) {
+      Toast.show(" 是人类", context);
+    }
+  }
 }
-
-
-
-
 
 class Person {
   String name;
@@ -42,5 +54,3 @@ class Person {
 class Chinese extends Person {
   String nationality;
 }
-
-
