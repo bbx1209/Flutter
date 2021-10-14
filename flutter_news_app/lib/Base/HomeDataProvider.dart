@@ -2,6 +2,7 @@
 import 'package:flutter_news_app/Base/RoutParam.dart';
 import 'package:flutter_news_app/Section/Async/AsyncRoute.dart';
 import 'package:flutter_news_app/Section/Cupertino/CupertinoRoute.dart';
+import 'package:flutter_news_app/Section/CustomClip/CustomCliperRute.dart';
 import 'package:flutter_news_app/Section/CustomScrollView/CustomScrollRoute.dart';
 import 'package:flutter_news_app/Section/DartLanguage/DartLanguageRoute.dart';
 import 'package:flutter_news_app/Section/FutureBuilder/FutureBuliderRoute.dart';
@@ -27,6 +28,7 @@ class HomeDataProvider {
       RouteItem("手势", GestureRoute()),
       RouteItem("CustomScrollRoute", CustomScrollRoute()),
       RouteItem("FutureBulider StreamBulider", FutureBuliderRoute()),
+      RouteItem("CustomClipRoute", CustomClipRoute()),
 
 
       
