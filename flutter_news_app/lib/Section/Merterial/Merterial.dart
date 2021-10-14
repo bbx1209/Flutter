@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
 import 'package:flutter_news_app/Section/Merterial/ButtonRoute.dart';
+import 'package:flutter_news_app/Section/Merterial/FitBoxRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/FormRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/ImageRoute.dart';
 import 'package:flutter_news_app/main.dart';
@@ -22,6 +23,7 @@ List<RouteItem> getMertialItems() {
     RouteItem("CheckBoxRoute", CheckBoxRoute()),
     RouteItem("IndicatorRoute", IndicatorRoute()),
     RouteItem("SizeBoxRoute", SizeBoxRoute()),
+    RouteItem("FittedBoxRoute", FittedBoxRoute()),
 
   ];
   return items;
