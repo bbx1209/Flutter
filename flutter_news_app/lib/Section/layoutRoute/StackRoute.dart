@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StackRoute extends StatefulWidget {
-  const StackRoute({Key key}) : super(key: key);
+  const StackRoute({Key? key}) : super(key: key);
 
   @override
   _StackRouteState createState() => _StackRouteState();

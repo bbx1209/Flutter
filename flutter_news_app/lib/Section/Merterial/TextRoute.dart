@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
 class TextRoute extends StatelessWidget {
-  TextRoute({Key key}) : super(key: key);
+  TextRoute({Key? key}) : super(key: key);
   TapGestureRecognizer _tapGestureRecognizer = new TapGestureRecognizer();
 
   @override

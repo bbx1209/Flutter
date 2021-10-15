@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NotifyRoute extends StatefulWidget {
-  const NotifyRoute({Key key}) : super(key: key);
+  const NotifyRoute({Key? key}) : super(key: key);
 
   @override
   _NotifyRouteState createState() => _NotifyRouteState();
@@ -46,7 +46,7 @@ class _NotifyRouteState extends State<NotifyRoute> {
 }
 
 class NotifyRouteII extends StatelessWidget {
-  const NotifyRouteII({Key key}) : super(key: key);
+  const NotifyRouteII({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

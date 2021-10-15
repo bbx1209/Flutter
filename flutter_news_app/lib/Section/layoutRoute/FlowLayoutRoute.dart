@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WrapLayouteRoute extends StatefulWidget {
-  const WrapLayouteRoute({Key key}) : super(key: key);
+  const WrapLayouteRoute({Key? key}) : super(key: key);
 
   @override
   _WrapLayouteRouteState createState() => _WrapLayouteRouteState();
@@ -52,7 +52,7 @@ class _WrapLayouteRouteState extends State<WrapLayouteRoute> {
 }
 
 class FlowLayouteRoute extends StatefulWidget {
-  const FlowLayouteRoute({Key key}) : super(key: key);
+  const FlowLayouteRoute({Key? key}) : super(key: key);
 
   @override
   _FlowLayouteRouteState createState() => _FlowLayouteRouteState();
@@ -117,16 +117,16 @@ class MyFlowDelegate extends FlowDelegate {
     var y = margin.top;
     //计算每一个子widget的位置
     for (int i = 0; i < context.childCount; i++) {
-      var w = context.getChildSize(i).width + x + margin.right;
+      var w = context.getChildSize(i)!.width + x + margin.right;
       if (w < context.size.width) {
         context.paintChild(i, transform: Matrix4.translationValues(x, y, 0.0));
         x = w + margin.left;
       } else {
         x = margin.left;
-        y += context.getChildSize(i).height + margin.top + margin.bottom;
+        y += context.getChildSize(i)!.height + margin.top + margin.bottom;
         //绘制子widget(有优化)
         context.paintChild(i, transform: Matrix4.translationValues(x, y, 0.0));
-        x += context.getChildSize(i).width + margin.left + margin.right;
+        x += context.getChildSize(i)!.width + margin.left + margin.right;
       }
     }
   }

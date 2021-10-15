@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyDialogRoute extends StatefulWidget {
-  const MyDialogRoute({Key key}) : super(key: key);
+  const MyDialogRoute({Key? key}) : super(key: key);
 
   @override
   _MyDialogRouteState createState() => _MyDialogRouteState();
@@ -19,7 +19,7 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
           children: [
             TextButton(
                 onPressed: () async {
-                  bool result = await showDialog1(context);
+                  bool? result = await showDialog1(context);
                   print(result == null ? "取消" : "确认");
                 },
                 child: Text("Dialog"))
@@ -29,7 +29,7 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
     );
   }
 
-  Future<bool> showDialog1(BuildContext context) {
+  Future<bool?> showDialog1(BuildContext context) {
     return showDialog(
         context: context,
         builder: (context) {

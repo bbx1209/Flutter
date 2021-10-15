@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FormRoute extends StatefulWidget {
-  const FormRoute({Key key}) : super(key: key);
+  const FormRoute({Key? key}) : super(key: key);
 
   @override
   _FormRouteState createState() => _FormRouteState();
@@ -13,7 +13,7 @@ class _FormRouteState extends State<FormRoute> {
   TextEditingController _defaultEC = TextEditingController();
   FocusNode _node1 = FocusNode();
   FocusNode _node2 = FocusNode();
-  FocusScopeNode _scopeNode;
+  FocusScopeNode _scopeNode = FocusScopeNode();
   GlobalKey _globalKey = GlobalKey<FormState>();
 
   @override
@@ -133,7 +133,7 @@ class _FormRouteState extends State<FormRoute> {
                     ),
                     // 校验用户名
                     validator: (v) {
-                      return v.trim().length > 0 ? null : "用户名不能为空";
+                      return v!.trim().length > 0 ? null : "用户名不能为空";
                     },
                   )
                 ],

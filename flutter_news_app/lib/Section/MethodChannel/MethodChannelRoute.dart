@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class MethodChannelRoute extends StatefulWidget {
-  const MethodChannelRoute({Key key}) : super(key: key);
+  const MethodChannelRoute({Key? key}) : super(key: key);
 
   @override
   _MethodChannelRouteState createState() => _MethodChannelRouteState();

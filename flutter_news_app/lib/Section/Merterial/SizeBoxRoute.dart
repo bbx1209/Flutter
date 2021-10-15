@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SizeBoxRoute extends StatefulWidget {
-  const SizeBoxRoute({Key key}) : super(key: key);
+  const SizeBoxRoute({Key? key}) : super(key: key);
 
   @override
   _SizeBoxRouteState createState() => _SizeBoxRouteState();

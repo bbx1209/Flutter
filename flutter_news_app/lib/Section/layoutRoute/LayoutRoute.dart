@@ -21,7 +21,7 @@ List<RouteItem> getMertialItems() {
 }
 
 class LayoutRoute extends StatefulWidget {
-  LayoutRoute({Key key}) : super(key: key);
+  LayoutRoute({Key? key}) : super(key: key);
 
   @override
   _LayoutRouteState createState() => _LayoutRouteState();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FittedBoxRoute extends StatefulWidget {
-  const FittedBoxRoute({Key key}) : super(key: key);
+  const FittedBoxRoute({Key? key}) : super(key: key);
 
   @override
   _FittedBoxRouteState createState() => _FittedBoxRouteState();

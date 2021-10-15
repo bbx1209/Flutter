@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class IndicatorRoute extends StatefulWidget {
-  const IndicatorRoute({Key key}) : super(key: key);
+  const IndicatorRoute({Key? key}) : super(key: key);
 
   @override
   _IndicatorRouteState createState() => _IndicatorRouteState();

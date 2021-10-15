@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomClipRoute extends StatefulWidget {
-  const CustomClipRoute({Key key}) : super(key: key);
+  const CustomClipRoute({Key? key}) : super(key: key);
 
   @override
   _CustomClipRouteState createState() => _CustomClipRouteState();

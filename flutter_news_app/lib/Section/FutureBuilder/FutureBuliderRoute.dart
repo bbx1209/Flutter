@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FutureBuliderRoute extends StatefulWidget {
-  const FutureBuliderRoute({Key key}) : super(key: key);
+  const FutureBuliderRoute({Key? key}) : super(key: key);
 
   @override
   _FutureBuliderRouteState createState() => _FutureBuliderRouteState();
@@ -47,7 +47,6 @@ class _FutureBuliderRouteState extends State<FutureBuliderRoute> {
                   case ConnectionState.done:
                     return Text("stream 已关闭");
                 }
-                return null;
               })
         ],
       )),

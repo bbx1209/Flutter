@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class GestureDetectorRoute extends StatefulWidget {
-  const GestureDetectorRoute({Key key}) : super(key: key);
+  const GestureDetectorRoute({Key? key}) : super(key: key);
 
   @override
   _GestureDetectorRouteState createState() => _GestureDetectorRouteState();

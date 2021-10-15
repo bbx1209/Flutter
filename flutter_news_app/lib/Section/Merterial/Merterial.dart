@@ -32,7 +32,7 @@ List<RouteItem> getMertialItems() {
 }
 
 class MerterialRoute extends StatelessWidget {
-  MerterialRoute({Key key}) : super(key: key);
+  MerterialRoute({Key? key}) : super(key: key);
   List<RouteItem> items = [];
 
   @override

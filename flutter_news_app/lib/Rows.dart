@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 class RowRoute extends StatelessWidget {
 
   RowRoute({
-    Key key,
+    Key? key,
   @required  this.text,
   }) : super(key: key);
 
-  final String text;
+  final String? text;
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ImageRoute extends StatelessWidget {
-  const ImageRoute({Key key}) : super(key: key);
+  const ImageRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

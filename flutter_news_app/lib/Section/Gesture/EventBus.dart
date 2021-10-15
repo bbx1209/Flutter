@@ -13,17 +13,17 @@ class EventBus {
   factory EventBus() => _singleton;
 
   //保存时间订阅者。key 为时间名称， value为时间订阅者队列
-  final _emap = Map<Object, List<EventCallBack>>();
+  final _emap = Map<Object, List<EventCallBack>?>();
 
   // 添加订阅者
   void on(eventname, EventCallBack f) {
     _emap[eventname] ??= <EventCallBack>[];
-    _emap[eventname].add(f);
+    _emap[eventname]!.add(f);
   }
 
 //移除订阅者
 
-  void off(eventname, [EventCallBack f]) {
+  void off(eventname, [EventCallBack? f]) {
     var list = _emap[eventname];
     if (eventname == null || list == null) return;
     if (f == null) {

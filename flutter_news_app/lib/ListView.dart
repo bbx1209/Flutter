@@ -163,11 +163,11 @@ class CollectionView extends StatelessWidget {
 class ItemButton extends StatelessWidget {
 
   ItemButton({
-    Key key,
+    Key? key,
     @required this.title
   }) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {

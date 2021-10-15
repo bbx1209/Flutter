@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
 class ButtonRoute extends StatelessWidget {
-  const ButtonRoute({Key key}) : super(key: key);
+  const ButtonRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class ButtonRoute extends StatelessWidget {
               ), label: Text("")),
               OutlinedButton(
               style: ButtonStyle(
-              backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blue[200]),
+              backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blue[200]!),
               ),
                   onPressed: (){}, child: Text("outed line button")),
             ],

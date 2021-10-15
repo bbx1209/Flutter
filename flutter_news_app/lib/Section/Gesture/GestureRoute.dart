@@ -26,7 +26,7 @@ List<RouteItem> getMertialItems() {
 
 
 class GestureRoute extends StatefulWidget {
-  const GestureRoute({Key key}) : super(key: key);
+  const GestureRoute({Key? key}) : super(key: key);
 
   @override
   _GestureRouteState createState() => _GestureRouteState();
