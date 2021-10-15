@@ -6,6 +6,7 @@ import 'package:flutter_news_app/Section/Merterial/ButtonRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/FitBoxRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/FormRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/ImageRoute.dart';
+import 'package:flutter_news_app/Section/Merterial/DialogRoute.dart';
 import 'package:flutter_news_app/main.dart';
 import 'package:toast/toast.dart';
 
@@ -24,6 +25,7 @@ List<RouteItem> getMertialItems() {
     RouteItem("IndicatorRoute", IndicatorRoute()),
     RouteItem("SizeBoxRoute", SizeBoxRoute()),
     RouteItem("FittedBoxRoute", FittedBoxRoute()),
+    RouteItem("DialogRoute", MyDialogRoute()),
 
   ];
   return items;
