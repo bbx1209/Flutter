@@ -11,6 +11,7 @@ import 'package:flutter_news_app/Section/Interface/ConstValue.dart';
 import 'package:flutter_news_app/Section/Merterial/Merterial.dart';
 import 'package:flutter_news_app/Section/MethodChannel/MethodChannelRoute.dart';
 import 'package:flutter_news_app/Section/RouteLifeCycle/RouteLifeCycle.dart';
+import 'package:flutter_news_app/Section/layoutRoute/LayoutRoute.dart';
 
 import '../ListView.dart';
 
@@ -18,6 +19,7 @@ class HomeDataProvider {
    static List<RouteItem> getHomeItems() {
     List<RouteItem> items = [
 
+      RouteItem("LayoutRoute", LayoutRoute()),
       RouteItem("列表", ListViewRoute()),
       RouteItem("页面元素", MerterialRoute()),
       RouteItem("Async", AsyncRoute()),
