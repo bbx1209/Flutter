@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
 class DartLanguageRoute extends StatelessWidget {
-  const DartLanguageRoute({Key key}) : super(key: key);
+  const DartLanguageRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -65,29 +65,28 @@ class DartLanguageRoute extends StatelessWidget {
 }
 
 class Person {
-  String name;
-  int age;
-  String address;
-  String phone;
+  String? name;
+  int? age;
+  String? address;
+  String? phone;
 }
 
 class Chinese extends Person  {
-  String nationality;
+  String? nationality;
 }
 
 class Writer extends Person with work {
 
     @override
   void makeMoney() {
-    // TODO: implement makeMoney
     super.makeMoney();
     print("writing");
   }
 }
 
 mixin work {
-  String job;
-  double salary;
+  String? job;
+  double? salary;
   void makeMoney() {
     print("makemoney by:");
   }

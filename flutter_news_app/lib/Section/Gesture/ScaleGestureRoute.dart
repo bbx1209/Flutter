@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class ScaleGestureRoute extends StatefulWidget {
-  const ScaleGestureRoute({Key key}) : super(key: key);
+  const ScaleGestureRoute({Key? key}) : super(key: key);
 
   @override
   _ScaleGestureRouteState createState() => _ScaleGestureRouteState();

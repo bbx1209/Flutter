@@ -24,7 +24,7 @@ import 'package:toast/toast.dart';
 
 
 class StatefulRouteCycle extends StatefulWidget {
-  const StatefulRouteCycle({Key key}) : super(key: key);
+  const StatefulRouteCycle({Key? key}) : super(key: key);
 
   @override
   _StatefulRouteCycleState createState() => _StatefulRouteCycleState();
@@ -108,7 +108,7 @@ class _StatefulRouteCycleState extends State<StatefulRouteCycle> {
 }
 
 class RouteLifeCycleNewRoute extends StatelessWidget {
-  const RouteLifeCycleNewRoute({Key key}) : super(key: key);
+  const RouteLifeCycleNewRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

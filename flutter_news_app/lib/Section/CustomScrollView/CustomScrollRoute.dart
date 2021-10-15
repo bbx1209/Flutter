@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomScrollRoute extends StatefulWidget {
-  const CustomScrollRoute({Key key}) : super(key: key);
+  const CustomScrollRoute({Key? key}) : super(key: key);
 
   @override
   _CustomScrollRouteState createState() => _CustomScrollRouteState();

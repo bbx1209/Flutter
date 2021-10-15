@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Section/Gesture/MyNoticication.dart';
 
 class CustonNotifyRoute extends StatefulWidget {
-  const CustonNotifyRoute({Key key}) : super(key: key);
+  const CustonNotifyRoute({Key? key}) : super(key: key);
 
   @override
   _CustonNotifyRouteState createState() => _CustonNotifyRouteState();

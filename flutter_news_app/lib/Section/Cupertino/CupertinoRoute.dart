@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CupertinoRoute extends StatefulWidget {
-  const CupertinoRoute({Key key}) : super(key: key);
+  const CupertinoRoute({Key? key}) : super(key: key);
 
   @override
   _CupertinoRouteState createState() => _CupertinoRouteState();

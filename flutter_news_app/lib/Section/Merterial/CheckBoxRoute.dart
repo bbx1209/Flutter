@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CheckBoxRoute extends StatefulWidget {
-  const CheckBoxRoute({Key key}) : super(key: key);
+  const CheckBoxRoute({Key? key}) : super(key: key);
 
   @override
   _CheckBoxRouteState createState() => _CheckBoxRouteState();
@@ -34,7 +34,7 @@ class _CheckBoxRouteState extends State<CheckBoxRoute> {
                   checkColor: Colors.black,//对号的颜色
                   onChanged: (value) {
                     setState(() {
-                      _checkboxSelected = value;
+                      _checkboxSelected = value!;
                     });
                   }),
             ],

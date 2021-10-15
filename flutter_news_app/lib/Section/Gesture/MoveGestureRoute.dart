@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MoveGestureRoute extends StatefulWidget {
-  const MoveGestureRoute({Key key}) : super(key: key);
+  const MoveGestureRoute({Key? key}) : super(key: key);
 
   @override
   _MoveGestureRouteState createState() => _MoveGestureRouteState();

@@ -6,7 +6,7 @@ import 'package:toast/toast.dart';
 const oneSecond = Duration(seconds: 1);
 
 class AsyncRoute extends StatefulWidget {
-  const AsyncRoute({Key key}) : super(key: key);
+  const AsyncRoute({Key? key}) : super(key: key);
 
   @override
   _AsyncRouteState createState() => _AsyncRouteState();

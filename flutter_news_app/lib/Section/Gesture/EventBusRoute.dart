@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'EventBus.dart';
 
 class EventBusRoute extends StatefulWidget {
-  const EventBusRoute({Key key}) : super(key: key);
+  const EventBusRoute({Key? key}) : super(key: key);
 
   @override
   _EventBusRouteState createState() => _EventBusRouteState();
@@ -42,7 +42,7 @@ class _EventBusRouteState extends State<EventBusRoute> {
 }
 
 class EventBusRoute2 extends StatelessWidget {
-  const EventBusRoute2({Key key}) : super(key: key);
+  const EventBusRoute2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

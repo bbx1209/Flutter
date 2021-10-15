@@ -1,45 +1,44 @@
+
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
-import 'package:flutter_news_app/Section/Gesture/CustomNotificationRoute.dart';
-import 'package:flutter_news_app/Section/Gesture/EventBusRoute.dart';
-import 'package:flutter_news_app/Section/Gesture/GestureDetectorRoute.dart';
-import 'package:flutter_news_app/Section/Gesture/MoveGestureRoute.dart';
-import 'package:flutter_news_app/Section/Gesture/NotificationRoute.dart';
-import 'package:flutter_news_app/Section/Gesture/ScaleGestureRoute.dart';
+import 'package:flutter_news_app/Section/layoutRoute/FlexRoute.dart';
+import 'package:flutter_news_app/Section/layoutRoute/FlowLayoutRoute.dart';
+import 'package:flutter_news_app/Section/layoutRoute/StackRoute.dart';
 import 'package:toast/toast.dart';
+
 
 List<RouteItem> getMertialItems() {
   List<RouteItem> items = [
-    RouteItem("GestureDetectorRoute", GestureDetectorRoute()),
-    RouteItem("MoveGestureRoute", MoveGestureRoute()),
-    RouteItem("ScaleGestureRoute", ScaleGestureRoute()),
-    RouteItem("EventBusRoute", EventBusRoute()),
-    RouteItem("NotifyRoute", NotifyRoute()),
-    RouteItem("NotifyRouteII", NotifyRouteII()),
-    RouteItem("CustonNotifyRoute", CustonNotifyRoute()),
-
+    RouteItem("FlexRoute", FlexRoute()),
+    RouteItem("WrapLayouteRoute", WrapLayouteRoute()),
+    RouteItem("FlowLayouteRoute", FlowLayouteRoute()),
+    RouteItem("StackRoute", StackRoute()),
 
   ];
   return items;
 }
 
-
-
-class GestureRoute extends StatefulWidget {
-  const GestureRoute({Key? key}) : super(key: key);
+class LayoutRoute extends StatefulWidget {
+  LayoutRoute({Key? key}) : super(key: key);
 
   @override
-  _GestureRouteState createState() => _GestureRouteState();
+  _LayoutRouteState createState() => _LayoutRouteState();
 }
 
-class _GestureRouteState extends State<GestureRoute> {
+class _LayoutRouteState extends State<LayoutRoute> {
   List<RouteItem> items = [];
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     items = getMertialItems();
+  }
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("页面元素"),
+        title: Text("LayoutRoute"),
       ),
       body: Center(
           child: ListView.separated(
@@ -56,6 +55,7 @@ class _GestureRouteState extends State<GestureRoute> {
       ),
     );
   }
+
 
   Widget getItem(BuildContext context, int index, RouteItem item) {
     return GestureDetector(
