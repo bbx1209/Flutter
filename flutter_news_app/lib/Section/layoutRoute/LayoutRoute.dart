@@ -4,12 +4,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
 import 'package:flutter_news_app/Section/layoutRoute/FlexRoute.dart';
+import 'package:flutter_news_app/Section/layoutRoute/FlowLayoutRoute.dart';
 import 'package:toast/toast.dart';
 
 
 List<RouteItem> getMertialItems() {
   List<RouteItem> items = [
     RouteItem("FlexRoute", FlexRoute()),
+    RouteItem("WrapLayouteRoute", WrapLayouteRoute()),
+    RouteItem("FlowLayouteRoute", FlowLayouteRoute()),
 
 
   ];
