@@ -368,6 +368,59 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
     });
   }
 
+  //MARK: 底部菜单
+ Future<int?> showBottomSheet(BuildContext context) {
+    return showModalBottomSheet(context: context, builder: (BuildContext context){
+
+      return ListView.builder(
+        itemCount: 20,
+          itemBuilder: (BuildContext context, int index){
+        return ListTile(title: Text("${index}"),onTap: (){
+          Navigator.of(context).pop();
+        },);
+      });
+    });
+ }
+
+//MARK: loading 框
+ showLoadingDialog(BuildContext context){
+    showDialog(context: context, builder: (context){
+      return AlertDialog(
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CircularProgressIndicator(),
+            Padding(padding: const EdgeInsets.only(top: 26),child: Text("正在加载啊。。。"),)
+          ],
+        ),
+      );
+    });
+ }
+
+  showLoadingDialog2(BuildContext context){
+    showDialog(context: context, builder: (context){
+      return  UnconstrainedBox(
+        constrainedAxis: Axis.vertical,
+          child: SizedBox(
+            width: 280,
+            child: AlertDialog(
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircularProgressIndicator(),
+                  Padding(padding: const EdgeInsets.only(top: 26),child: Text("正在加载啊。。。"),)
+                ],
+              ),
+            ),
+          ),
+      );
+    });
+  }
+
+//MARK: 日历选择
+
+
+
 
 }
 
