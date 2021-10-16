@@ -8,7 +8,7 @@ import 'package:flutter_news_app/Section/Merterial/FormRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/ImageRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/DialogRoute.dart';
 import 'package:flutter_news_app/main.dart';
-import 'package:toast/toast.dart';
+// import 'package:toast/toast.dart';
 
 import 'CheckBoxRoute.dart';
 import 'Indicator.dart';
@@ -74,7 +74,7 @@ class MerterialRoute extends StatelessWidget {
   }
 
   void onClickItem(BuildContext context,RouteItem item) {
-    Toast.show("点击了 ${item.title} ", context);
+    // Toast.show("点击了 ${item.title} ", context);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return item.newRoute;
     }));

@@ -6,7 +6,7 @@ import 'package:flutter_news_app/Base/RoutParam.dart';
 import 'package:flutter_news_app/Section/layoutRoute/FlexRoute.dart';
 import 'package:flutter_news_app/Section/layoutRoute/FlowLayoutRoute.dart';
 import 'package:flutter_news_app/Section/layoutRoute/StackRoute.dart';
-import 'package:toast/toast.dart';
+// import 'package:toast/toast.dart';
 
 
 List<RouteItem> getMertialItems() {
@@ -73,7 +73,7 @@ class _LayoutRouteState extends State<LayoutRoute> {
   }
 
   void onClickItem(BuildContext context,RouteItem item) {
-    Toast.show("点击了 ${item.title} ", context);
+    // Toast.show("点击了 ${item.title} ", context);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return item.newRoute;
     }));

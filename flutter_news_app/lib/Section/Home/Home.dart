@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Base/HomeDataProvider.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
-import 'package:toast/toast.dart';
+// import 'package:toast/toast.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void onItemClick(RouteItem item) {
-    Toast.show("点击了 ${item.title} ", this.context);
+    // Toast.show("点击了 ${item.title} ", this.context);
     Navigator.push(this.context, MaterialPageRoute(builder: (context) {
       return item.newRoute;
     }));
