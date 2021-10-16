@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyDialogRoute extends StatefulWidget {
@@ -38,6 +39,16 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
                   showUnconstrainsDialog(context);
                 },
                 child: Text("showUnconstrainsDialog")),
+            TextButton(
+                onPressed: () async {
+                 bool? result = await showCheckboxDialog(context);
+                 if (result == null) {
+                   print("取消");
+                 } else {
+                   print("删除 ${result}");
+                 }
+                },
+                child: Text("show Checkbox dialog ")),
           ],
         ),
       ),
@@ -68,6 +79,50 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
           );
         });
   }
+
+//TODO:  need config
+  // Future<T?> showCustomDialog<T>({
+  //   required BuildContext context,
+  //   bool barrierDismissible = true,
+  //   required WidgetBuilder builder,
+  //   ThemeData? theme,
+  // }) {
+  //   final ThemeData theme = Theme.of(context, shadowThemeOnly: true);
+  //   return showGeneralDialog(
+  //     context: context,
+  //     pageBuilder: (BuildContext buildContext, Animation<double> animation,
+  //         Animation<double> secondaryAnimation) {
+  //       final Widget pageChild = Builder(builder: builder);
+  //       return SafeArea(
+  //         child: Builder(builder: (BuildContext context) {
+  //           return theme != null
+  //               ? Theme(data: theme, child: pageChild)
+  //               : pageChild;
+  //         }),
+  //       );
+  //     },
+  //     barrierDismissible: barrierDismissible,
+  //     barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+  //     barrierColor: Colors.black87, // 自定义遮罩颜色
+  //     transitionDuration: const Duration(milliseconds: 150),
+  //     transitionBuilder: _buildMaterialDialogTransitions,
+  //   );
+  // }
+  //
+  // Widget _buildMaterialDialogTransitions(
+  //     BuildContext context,
+  //     Animation<double> animation,
+  //     Animation<double> secondaryAnimation,
+  //     Widget child) {
+  //   // 使用缩放动画
+  //   return ScaleTransition(
+  //     scale: CurvedAnimation(
+  //       parent: animation,
+  //       curve: Curves.easeOut,
+  //     ),
+  //     child: child,
+  //   );
+  // }child
 
   Future<void> simpleDialog(BuildContext context) async {
     int? i = await showDialog<int>(context: context, builder: (context) {
@@ -166,4 +221,75 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
     }
   }
 
+
+  Future<bool?> showCheckboxDialog(BuildContext context) {
+    bool _checkboxSelected = false;
+    return showDialog(context: context, builder: (context){
+      return AlertDialog(
+        title: Text("提示"),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("确定要删除文件吗？"),
+            Row(
+              children: [
+                Text("同时删除子目录？"),
+                CheckboxDialog(onChanged: (bool value){
+                  _checkboxSelected=!_checkboxSelected;
+                }, value: _checkboxSelected,)
+
+              ],
+            )
+          ],
+        ),
+        actions: [
+          TextButton(
+            child:Text("取消") ,
+            onPressed: (){
+              Navigator.of(context).pop();
+            },
+          ),
+          TextButton(onPressed: (){
+            Navigator.of(context).pop(_checkboxSelected);
+          }, child: Text("删除")),
+        ],
+      );
+    });
+  }
+
 }
+
+
+class CheckboxDialog extends StatefulWidget {
+  CheckboxDialog({Key? key,
+    this.value,
+    required this.onChanged}) : super(key: key);
+
+  final ValueChanged<bool> onChanged;
+  final bool? value;
+
+  @override
+  _CheckboxDialogState createState() => _CheckboxDialogState();
+}
+
+class _CheckboxDialogState extends State<CheckboxDialog> {
+
+  bool? value;
+
+  @override
+  void initState() {
+    value = widget.value;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Checkbox(value: value, onChanged: (v) {
+      setState(() {
+        value = v;
+      });
+    });
+  }
+}
+

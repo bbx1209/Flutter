@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:toast/toast.dart';
+// import 'package:toast/toast.dart';
 
 
 const oneSecond = Duration(seconds: 1);
@@ -24,7 +24,7 @@ class _AsyncRouteState extends State<AsyncRoute> {
   Future<void> prinWithDelay(String message) async {
     await Future.delayed(oneSecond);
     print(message);
-    Toast.show(message, this.context);
+    // Toast.show(message, this.context);
   }
 
 

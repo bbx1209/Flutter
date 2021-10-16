@@ -6,7 +6,7 @@ import 'package:flutter_news_app/Section/Gesture/GestureDetectorRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/MoveGestureRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/NotificationRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/ScaleGestureRoute.dart';
-import 'package:toast/toast.dart';
+// import 'package:toast/toast.dart';
 
 List<RouteItem> getMertialItems() {
   List<RouteItem> items = [
@@ -73,7 +73,7 @@ class _GestureRouteState extends State<GestureRoute> {
   }
 
   void onClickItem(BuildContext context,RouteItem item) {
-    Toast.show("点击了 ${item.title} ", context);
+    // Toast.show("点击了 ${item.title} ", context);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return item.newRoute;
     }));

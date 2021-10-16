@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
+// import 'package:toast/toast.dart';
 
 class DartLanguageRoute extends StatelessWidget {
   const DartLanguageRoute({Key? key}) : super(key: key);
@@ -43,14 +43,14 @@ class DartLanguageRoute extends StatelessWidget {
   void isChinese(BuildContext context) {
     var chinese = Chinese();
     if (chinese is Chinese) {
-      Toast.show(" 是中国人 ", context);
+      // Toast.show(" 是中国人 ", context);
     }
   }
 
   void isPerson(BuildContext context) {
     var chinese = Chinese();
     if (chinese is Person) {
-      Toast.show(" 是人类", context);
+      // Toast.show(" 是人类", context);
     }
   }
 
@@ -58,7 +58,7 @@ class DartLanguageRoute extends StatelessWidget {
     var chinese = Chinese()
           ..nationality = "sasdfa";
     (chinese as Chinese).nationality = "中国国籍";
-    Toast.show("${chinese.nationality}", context);
+    // Toast.show("${chinese.nationality}", context);
   }
 
 

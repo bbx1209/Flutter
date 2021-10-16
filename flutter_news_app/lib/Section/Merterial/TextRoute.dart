@@ -1,7 +1,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
+// import 'package:toast/toast.dart';
 
 class TextRoute extends StatelessWidget {
   TextRoute({Key? key}) : super(key: key);
@@ -30,7 +30,7 @@ class TextRoute extends StatelessWidget {
                       color: Colors.blue, decoration: TextDecoration.underline),
                   recognizer: _tapGestureRecognizer
                     ..onTap = () {
-                      Toast.show("12131313", context);
+                      // Toast.show("12131313", context);
                     })
             ])),
             Padding(
