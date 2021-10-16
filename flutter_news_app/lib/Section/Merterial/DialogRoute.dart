@@ -59,6 +59,16 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
                   }
                 },
                 child: Text("show Checkbox dialog2 ")),
+            TextButton(
+                onPressed: () async {
+                  bool? result = await showCheckboxDialog3(context);
+                  if (result == null) {
+                    print("取消");
+                  } else {
+                    print("删除 ${result}");
+                  }
+                },
+                child: Text("show Checkbox dialog3 ")),
           ],
         ),
       ),
@@ -281,12 +291,12 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
             Row(
               children: [
                 Text("同时删除子目录？"),
-                StatefulBuilder(builder: (context, _setState){
+                StatefulBuilder(builder: (context, _setState) {
                   return Checkbox(
                     value: _checkboxSelected,
-                    onChanged: (bool? value){
-                      _setState((){
-                        _checkboxSelected=!_checkboxSelected;
+                    onChanged: (bool? value) {
+                      _setState(() {
+                        _checkboxSelected = !_checkboxSelected;
                       });
                     },
                   );
@@ -311,6 +321,52 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
     });
   }
 
+  Future<bool?> showCheckboxDialog3(BuildContext context) {
+    bool _checkboxSelected = false;
+    return showDialog(context: context, builder: (context) {
+      return AlertDialog(
+        title: Text("提示"),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("确定要删除文件吗？"),
+            Row(
+              children: [
+                Text("同时删除子目录？"),
+                //这么做，在setstate时会将这个UIrebuild
+                // Checkbox(
+                //   value: _checkboxSelected,
+                //   onChanged: (bool? value) {
+                //     (context as Element).markNeedsBuild();
+                //     _checkboxSelected=!_checkboxSelected;
+                //   },
+                // )
+                Builder(builder: (BuildContext context){
+                  return Checkbox(value: _checkboxSelected, onChanged: (bool? value){
+                    (context as Element).markNeedsBuild();
+                    _checkboxSelected=!_checkboxSelected;
+                  });
+                })
+
+              ],
+            )
+          ],
+        ),
+        actions: [
+          TextButton(
+            child: Text("取消"),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          TextButton(onPressed: () {
+            Navigator.of(context).pop(_checkboxSelected);
+          }, child: Text("删除")),
+        ],
+      );
+    });
+  }
 
 
 }
