@@ -69,6 +69,43 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
                   }
                 },
                 child: Text("show Checkbox dialog3 ")),
+            TextButton(
+                onPressed: () async {
+                  int? result = await showBottomSheet(context);
+                  if (result == null) {
+                  } else {
+                    print(" ${result}");
+                  }
+                },
+                child: Text("show bottom sheet ")),
+            TextButton(
+                onPressed: ()  {
+                  showLoadingDialog(context);
+                },
+                child: Text("show bottom sheet ")),
+            TextButton(
+                onPressed: ()  {
+                  showLoadingDialog2(context);
+                },
+                child: Text("show bottom sheet2 ")),
+            TextButton(
+                onPressed: () async {
+                  DateTime? result = await _showDatePicker(context);
+                  if (result == null) {
+                  } else {
+                    print(" ${result}");
+                  }
+                },
+                child: Text("_showDatePicker ")),
+            TextButton(
+                onPressed: () async {
+                  DateTime? result = await _showDatePicker2(context);
+                  if (result == null) {
+                  } else {
+                    print(" ${result}");
+                  }
+                },
+                child: Text("_showDatePicke2r ")),
           ],
         ),
       ),
@@ -342,10 +379,11 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
                 //     _checkboxSelected=!_checkboxSelected;
                 //   },
                 // )
-                Builder(builder: (BuildContext context){
-                  return Checkbox(value: _checkboxSelected, onChanged: (bool? value){
+                Builder(builder: (BuildContext context) {
+                  return Checkbox(
+                      value: _checkboxSelected, onChanged: (bool? value) {
                     (context as Element).markNeedsBuild();
-                    _checkboxSelected=!_checkboxSelected;
+                    _checkboxSelected = !_checkboxSelected;
                   });
                 })
 
@@ -369,57 +407,85 @@ class _MyDialogRouteState extends State<MyDialogRoute> {
   }
 
   //MARK: 底部菜单
- Future<int?> showBottomSheet(BuildContext context) {
-    return showModalBottomSheet(context: context, builder: (BuildContext context){
-
+  Future<int?> showBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+        context: context, builder: (BuildContext context) {
       return ListView.builder(
-        itemCount: 20,
-          itemBuilder: (BuildContext context, int index){
-        return ListTile(title: Text("${index}"),onTap: (){
-          Navigator.of(context).pop();
-        },);
-      });
+          itemCount: 20,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(title: Text("${index}"), onTap: () {
+              Navigator.of(context).pop();
+            },);
+          });
     });
- }
+  }
 
 //MARK: loading 框
- showLoadingDialog(BuildContext context){
-    showDialog(context: context, builder: (context){
+  showLoadingDialog(BuildContext context) {
+    showDialog(context: context, builder: (context) {
       return AlertDialog(
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             CircularProgressIndicator(),
-            Padding(padding: const EdgeInsets.only(top: 26),child: Text("正在加载啊。。。"),)
+            Padding(
+              padding: const EdgeInsets.only(top: 26), child: Text("正在加载啊。。。"),)
           ],
         ),
       );
     });
- }
+  }
 
-  showLoadingDialog2(BuildContext context){
-    showDialog(context: context, builder: (context){
-      return  UnconstrainedBox(
+  showLoadingDialog2(BuildContext context) {
+    showDialog(context: context, builder: (context) {
+      return UnconstrainedBox(
         constrainedAxis: Axis.vertical,
-          child: SizedBox(
-            width: 280,
-            child: AlertDialog(
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CircularProgressIndicator(),
-                  Padding(padding: const EdgeInsets.only(top: 26),child: Text("正在加载啊。。。"),)
-                ],
-              ),
+        child: SizedBox(
+          width: 280,
+          child: AlertDialog(
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircularProgressIndicator(),
+                Padding(padding: const EdgeInsets.only(top: 26),
+                  child: Text("正在加载啊。。。"),)
+              ],
             ),
           ),
+        ),
       );
     });
   }
 
 //MARK: 日历选择
+  Future<DateTime?> _showDatePicker(BuildContext context) {
+    var date = DateTime.now();
+    return showDatePicker(
+      context: context,
+      initialDate: date,
+      firstDate: date,
+      lastDate: date.add(Duration(days: 30)),
+    );
+  }
 
+  Future<DateTime?> _showDatePicker2(BuildContext context) {
+    var date = DateTime.now();
+    return showCupertinoModalPopup(context: context, builder: (context){
 
+      return SizedBox(
+        height: 200,
+        child: CupertinoDatePicker(
+          mode: CupertinoDatePickerMode.dateAndTime,
+          minimumDate: date,
+          maximumDate: date.add(Duration(days: 30)),
+          minimumYear: date.year +1,
+          onDateTimeChanged: (DateTime value){
+            print(value);
+          },
+        ),
+      );
+    });
+  }
 
 
 }
