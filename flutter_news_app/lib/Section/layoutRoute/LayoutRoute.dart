@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
+import 'package:flutter_news_app/Section/layoutRoute/AfterLayoutRoute.dart';
 import 'package:flutter_news_app/Section/layoutRoute/FlexRoute.dart';
 import 'package:flutter_news_app/Section/layoutRoute/FlowLayoutRoute.dart';
 import 'package:flutter_news_app/Section/layoutRoute/LayoutBuilderRoute.dart';
@@ -17,6 +18,9 @@ List<RouteItem> getMertialItems() {
     RouteItem("FlowLayouteRoute", FlowLayouteRoute()),
     RouteItem("StackRoute", StackRoute()),
     RouteItem("LayoutBuilderRoute", LayoutBuilderRoute()),
+    RouteItem("AfterLayoutRoute", AfterLayoutRoute()),
+
+
 
 
   ];
