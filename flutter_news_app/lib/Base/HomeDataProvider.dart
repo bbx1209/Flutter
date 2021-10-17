@@ -5,6 +5,7 @@ import 'package:flutter_news_app/Section/Cupertino/CupertinoRoute.dart';
 import 'package:flutter_news_app/Section/CustomClip/CustomCliperRute.dart';
 import 'package:flutter_news_app/Section/CustomScrollView/CustomScrollRoute.dart';
 import 'package:flutter_news_app/Section/DartLanguage/DartLanguageRoute.dart';
+import 'package:flutter_news_app/Section/FunctionWidget/FunctionWidgetRoute.dart';
 import 'package:flutter_news_app/Section/FutureBuilder/FutureBuliderRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/GestureRoute.dart';
 import 'package:flutter_news_app/Section/Interface/ConstValue.dart';
@@ -19,6 +20,7 @@ class HomeDataProvider {
    static List<RouteItem> getHomeItems() {
     List<RouteItem> items = [
 
+      RouteItem("FunctionWidgetRoute", FunctionWidgetRoute()),
       RouteItem("LayoutRoute", LayoutRoute()),
       RouteItem("列表", ListViewRoute()),
       RouteItem("页面元素", MerterialRoute()),
