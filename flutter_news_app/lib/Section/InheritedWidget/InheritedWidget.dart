@@ -1,28 +1,35 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 
 class ShareDataWidget extends InheritedWidget {
-  ShareDataWidget({Key ? key ,required this.data, required Widget child})
-  : super(key: key, child: child);
+  ShareDataWidget({Key? key, required this.data, required Widget child})
+      : super(key: key, child: child);
 
   static ShareDataWidget? of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<ShareDataWidget>();
+    // return context.dependOnInheritedWidgetOfExactType<ShareDataWidget>();
+    InheritedWidget widget = context
+        .getElementForInheritedWidgetOfExactType<ShareDataWidget>()!
+        .widget;
+    if (widget is ShareDataWidget) {
+      return widget;
+    } else {
+      return null;
+    }
   }
+
   final int data;
+
   @override
   bool updateShouldNotify(ShareDataWidget oldWidget) {
     return oldWidget.data != data;
   }
-
 }
 
 class TextWithShareDateWidget extends StatefulWidget {
   const TextWithShareDateWidget({Key? key}) : super(key: key);
 
   @override
-  _TextWithShareDateWidgetState createState() => _TextWithShareDateWidgetState();
+  _TextWithShareDateWidgetState createState() =>
+      _TextWithShareDateWidgetState();
 }
 
 class _TextWithShareDateWidgetState extends State<TextWithShareDateWidget> {
