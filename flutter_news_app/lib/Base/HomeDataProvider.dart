@@ -8,6 +8,7 @@ import 'package:flutter_news_app/Section/DartLanguage/DartLanguageRoute.dart';
 import 'package:flutter_news_app/Section/FunctionWidget/FunctionWidgetRoute.dart';
 import 'package:flutter_news_app/Section/FutureBuilder/FutureBuliderRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/GestureRoute.dart';
+import 'package:flutter_news_app/Section/InheritedWidget/InheritedRoute.dart';
 import 'package:flutter_news_app/Section/Interface/ConstValue.dart';
 import 'package:flutter_news_app/Section/Merterial/Merterial.dart';
 import 'package:flutter_news_app/Section/MethodChannel/MethodChannelRoute.dart';
@@ -21,6 +22,7 @@ class HomeDataProvider {
    static List<RouteItem> getHomeItems() {
     List<RouteItem> items = [
 
+      RouteItem("InheritedRoute", InheritedRoute()),
       RouteItem("ScaffoldRoute", ScaffoldRoute()),
       RouteItem("FunctionWidgetRoute", FunctionWidgetRoute()),
       RouteItem("LayoutRoute", LayoutRoute()),
