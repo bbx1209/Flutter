@@ -20,20 +20,38 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         ],
       ),
       drawer: MyDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Business'),
-          BottomNavigationBarItem(icon: Icon(Icons.school), label: 'School'),
-        ],
-        currentIndex: _selected,
-        onTap: (index){
-          setState(() {
-            _selected = index;
-          });
-        },
-        selectedItemColor: Colors.red,
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Business'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.school), label: 'School'),
+      //   ],
+      //   currentIndex: _selected,
+      //   onTap: (index){
+      //     setState(() {
+      //       _selected = index;
+      //     });
+      //   },
+      //   selectedItemColor: Colors.red,
+      // ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(icon: Icon(Icons.home),onPressed: (){},),
+            SizedBox(), //中间位置空出
+            IconButton(icon: Icon(Icons.business), onPressed: (){},),
+          ],
+        ),
       ),
+      floatingActionButton: FloatingActionButton( //悬浮按钮
+          child: Icon(Icons.add),
+
+          onPressed:(){}
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
