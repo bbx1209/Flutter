@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Base/HomeDataProvider.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
+import 'package:flutter_news_app/Helpers/MyToast.dart';
 // import 'package:toast/toast.dart';
 
 class Home extends StatelessWidget {
@@ -75,6 +76,7 @@ class _HomePageState extends State<HomePage> {
 
   void onItemClick(RouteItem item) {
     // Toast.show("点击了 ${item.title} ", this.context);
+    MyToast.show("${item.title}");
     Navigator.push(this.context, MaterialPageRoute(builder: (context) {
       return item.newRoute;
     }));
