@@ -4,6 +4,7 @@ import 'dart:collection';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/Section/InheritedWidget/InheritedProvider.dart';
 
 class Item {
 
@@ -25,5 +26,19 @@ class CartModel extends ChangeNotifier {
   void add(Item item) {
     _items.add(item);
     notifyListeners();
+  }
+}
+
+class Consumer<T> extends StatelessWidget {
+   Consumer({Key? key, required this.builder}) : super(key: key);
+
+   final Widget Function(BuildContext context,T? value) builder;
+
+  @override
+  Widget build(BuildContext context) {
+    return builder(
+      context,
+      ChangeNotifierProvider.of<T>(context)
+    );
   }
 }

@@ -24,13 +24,17 @@ class _ProviderRouteState extends State<ProviderRoute> {
           child: Builder(builder: (context){
             return Column(
               children: [
-                Builder(builder: (context){
-                  var cart = ChangeNotifierProvider.of<CartModel>(context);
-                  return Text("总价:${cart.totalPrice}");},),
+                Consumer<CartModel>(builder: (context, cart){
+                  return Text("总价:${cart!.totalPrice}");
+                }),
+                // Builder(builder: (context){
+                //   var cart = ChangeNotifierProvider.of<CartModel>(context);
+                //   return Text("总价:${cart.totalPrice}");},
+                // ),
 
                 Builder(builder: (context) {
                   return TextButton(child: Text("添加商品"), onPressed: (){
-                    ChangeNotifierProvider.of<CartModel>(context).add(Item(10, 1));
+                    ChangeNotifierProvider.of<CartModel>(context, listen: false).add(Item(10, 1));
                   });
                 }
                 ),
