@@ -18,6 +18,7 @@ class _PathProviderRouteState extends State<PathProviderRoute> {
 
   Future<File> _getLocalFile() async {
     String dir = (await getApplicationDocumentsDirectory()).path;
+    print("$dir/counter.text");
     return File('$dir/counter.text');
   }
   Future<int> _readCount() async {
