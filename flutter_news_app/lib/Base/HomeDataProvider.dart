@@ -5,6 +5,7 @@ import 'package:flutter_news_app/Section/Cupertino/CupertinoRoute.dart';
 import 'package:flutter_news_app/Section/CustomClip/CustomCliperRute.dart';
 import 'package:flutter_news_app/Section/CustomScrollView/CustomScrollRoute.dart';
 import 'package:flutter_news_app/Section/DartLanguage/DartLanguageRoute.dart';
+import 'package:flutter_news_app/Section/Document/DocumentRoute.dart';
 import 'package:flutter_news_app/Section/FunctionWidget/FunctionWidgetRoute.dart';
 import 'package:flutter_news_app/Section/FutureBuilder/FutureBuliderRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/GestureRoute.dart';
@@ -27,6 +28,7 @@ class HomeDataProvider {
     List<RouteItem> items = [
 
 
+      RouteItem("DocumentRoute", DocumentRoute()),
       RouteItem("ValueListenRoute", ValueListenRoute()),
       RouteItem("ThemeRoute", ThemeRoute()),
       RouteItem("ProviderRoute", ProviderRoute()),

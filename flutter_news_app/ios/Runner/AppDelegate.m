@@ -16,6 +16,9 @@
         } else if([call.method isEqualToString:@"toast"]){
             NSString *text =  call.arguments;
             [weak_self.window.rootViewController.view showText:text];
+        } else if ([call.method isEqualToString:@"getApplicationDocumentsDirectory"]) {
+            NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+            result(path);
         }
     }];
 

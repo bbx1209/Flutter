@@ -12,6 +12,7 @@ class _ValueListenRouteState extends State<ValueListenRoute> {
 
   @override
   Widget build(BuildContext context) {
+    print("value listen buider ");
     return Scaffold(
         appBar: AppBar(
           title: Text("ValueListenRoute"),

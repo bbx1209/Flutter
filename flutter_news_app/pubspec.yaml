@@ -34,6 +34,8 @@ dependencies:
   sqflite: ^1.3.0
 #  toast: ^0.1.5 # 不支持 null safety
   shared_preferences: ^2.0.8
+  # 保存至文件
+  path_provider: ^2.0.2
 
 dev_dependencies:
   flutter_test:
