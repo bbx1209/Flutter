@@ -17,6 +17,7 @@ import 'package:flutter_news_app/Section/MethodChannel/MethodChannelRoute.dart';
 import 'package:flutter_news_app/Section/RouteLifeCycle/RouteLifeCycle.dart';
 import 'package:flutter_news_app/Section/Scaffold/ScaffoldRoute.dart';
 import 'package:flutter_news_app/Section/Theme/ThemeRoute.dart';
+import 'package:flutter_news_app/Section/ValueListenRoute/ValueListenRoute.dart';
 import 'package:flutter_news_app/Section/layoutRoute/LayoutRoute.dart';
 
 import '../ListView.dart';
@@ -26,6 +27,7 @@ class HomeDataProvider {
     List<RouteItem> items = [
 
 
+      RouteItem("ValueListenRoute", ValueListenRoute()),
       RouteItem("ThemeRoute", ThemeRoute()),
       RouteItem("ProviderRoute", ProviderRoute()),
       RouteItem("InheritedProviderRoute", InheritedProviderRoute()),
