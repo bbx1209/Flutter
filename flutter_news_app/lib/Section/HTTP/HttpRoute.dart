@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:dio/dio.dart';
 
 import 'package:flutter/material.dart';
 
@@ -24,15 +25,22 @@ class _HTTPRouteState extends State<HTTPRoute> {
             onPressed: () {
               httpClientRqueset();
             },
-          )
+          ),
+          TextButton(
+            child: Text("dio get"),
+            onPressed: () {
+              // dioGet();
+              dioGetWithParam();
+            },
+          ),
         ],
       ),
     );
   }
 }
 
- httpClientRqueset() async {
-  try{
+httpClientRqueset() async {
+  try {
     HttpClient httpClient = HttpClient();
     Uri uri = Uri.parse("https://httpbin.org/get");
     HttpClientRequest request = await httpClient.getUrl(uri);
@@ -40,10 +48,22 @@ class _HTTPRouteState extends State<HTTPRoute> {
     String result = await response.transform(utf8.decoder).join();
     print(result);
     httpClient.close();
-  } catch(e) {
+  } catch (e) {
     print("$e");
   } finally {
     print("finally");
   }
-
 }
+
+dioGet() async {
+ var dio = Dio();
+ Response response = await dio.get("https://httpbin.org/get");
+ print(response.data.toString() + response.headers.toString());
+}
+
+dioGetWithParam() async {
+  var dio = Dio();
+  Response response = await dio.get("https://httpbin.org/get",queryParameters: {"a":"1","b":"2"});
+  print(response.data.toString() + response.headers.toString());
+}
+
