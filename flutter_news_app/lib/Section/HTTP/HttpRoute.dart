@@ -33,6 +33,12 @@ class _HTTPRouteState extends State<HTTPRoute> {
               dioGetWithParam();
             },
           ),
+          TextButton(
+            child: Text("dio post"),
+            onPressed: () {
+              dioPostWithParam();
+            },
+          ),
         ],
       ),
     );
@@ -64,6 +70,12 @@ dioGet() async {
 dioGetWithParam() async {
   var dio = Dio();
   Response response = await dio.get("https://httpbin.org/get",queryParameters: {"a":"1","b":"2"});
+  print(response.data.toString() + response.headers.toString());
+}
+
+dioPostWithParam() async {
+  var dio = Dio();
+  Response response = await dio.post("https://httpbin.org/post",data: {"a":"1","b":"2"});
   print(response.data.toString() + response.headers.toString());
 }
 
