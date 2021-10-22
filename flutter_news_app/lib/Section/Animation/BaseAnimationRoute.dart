@@ -27,6 +27,16 @@ class _BaseAnimationRouteState extends State<BaseAnimationRoute>
     //   });
     //用 animationwidget 简化后
     animation = Tween(begin: 0.0, end: 300.0).animate(controller);
+    //设置动画状态监听
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        //动画执行结束时反向执行动画
+        controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        //动画恢复到初始状态时执行动画（正向）
+        controller.forward();
+      }
+    });
 
     controller.forward();
   }
@@ -42,18 +52,23 @@ class _BaseAnimationRouteState extends State<BaseAnimationRoute>
         //用 animationwidget 简化后
         // child: AnimationImage(animation: animation),
         //使用builder
-        child: AnimatedBuilder(
+        // child: AnimatedBuilder(
+        //   animation: animation,
+        //   child: Image.asset("images/mao.png"),
+        //   builder: (BuildContext context , child){
+        //     return Center(
+        //       child: Container(
+        //         height: animation.value,
+        //         width: animation.value,
+        //         child: child,
+        //       ),
+        //     );
+        //   },
+        // ),
+
+        child: GrowTransition(
           animation: animation,
           child: Image.asset("images/mao.png"),
-          builder: (BuildContext context , child){
-            return Center(
-              child: Container(
-                height: animation.value,
-                width: animation.value,
-                child: child,
-              ),
-            );
-          },
         ),
       ),
     );
@@ -84,3 +99,29 @@ class AnimationImage extends AnimatedWidget {
     );
   }
 }
+
+
+class GrowTransition extends StatelessWidget {
+  const GrowTransition({Key? key, required this.animation, this.child}) : super(key: key);
+
+  final Widget? child;
+  final Animation<double> animation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: AnimatedBuilder(
+        animation: animation,
+        builder: (BuildContext context, child) {
+          return Container(
+            height: animation.value,
+            width: animation.value,
+            child: child,
+          );
+        },
+        child: child,
+      ),
+    );
+  }
+}
+
