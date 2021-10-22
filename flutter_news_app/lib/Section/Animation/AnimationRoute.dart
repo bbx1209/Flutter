@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
+import 'package:flutter_news_app/Section/Animation/BaseAnimationRoute.dart';
 
 class AnimationRoute extends StatefulWidget {
   const AnimationRoute({Key? key}) : super(key: key);
@@ -40,7 +41,7 @@ class _AnimationRouteState extends State<AnimationRoute> {
 
 List<RouteItem> getMertialItems() {
   List<RouteItem> items = [
-    // RouteItem("PathProviderRoute", PathProviderRoute()),
+    RouteItem("BaseAnimationRoute", BaseAnimationRoute()),
     // RouteItem("MoveGestureRoute", MoveGestureRoute()),
 
 
