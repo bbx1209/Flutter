@@ -1,5 +1,6 @@
 
 import 'package:flutter_news_app/Base/RoutParam.dart';
+import 'package:flutter_news_app/Section/Animation/AnimationRoute.dart';
 import 'package:flutter_news_app/Section/Async/AsyncRoute.dart';
 import 'package:flutter_news_app/Section/Cupertino/CupertinoRoute.dart';
 import 'package:flutter_news_app/Section/CustomClip/CustomCliperRute.dart';
@@ -29,6 +30,7 @@ class HomeDataProvider {
     List<RouteItem> items = [
 
 
+      RouteItem("AnimationRoute", AnimationRoute()),
       RouteItem("HTTPRoute", HTTPRoute()),
       RouteItem("DocumentRoute", DocumentRoute()),
       RouteItem("ValueListenRoute", ValueListenRoute()),
