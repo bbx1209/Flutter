@@ -2,6 +2,8 @@ package com.example.flutter_news_app;
 
 import android.os.Bundle;
 import android.os.ConditionVariable;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,7 +17,7 @@ import io.flutter.plugin.common.MethodChannel;
 
 public class MainActivity extends FlutterActivity {
 
-    private final String CHANNEL = "helloworld.flutter.io/info";
+    private final String CHANNEL = "helloworld.flutter.io/MethodChannel";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +33,10 @@ public class MainActivity extends FlutterActivity {
             public void onMethodCall(@NonNull MethodCall call, @NonNull MethodChannel.Result result) {
                 if (call.method.equals("getInfomationFromNative")) {
                     result.success("value from android");
+                } else if (call.method.equals("toast")) {
+                    String arguments = (String) call.arguments;
+                    Log.e("MainActivity", "onMethodCall: " + arguments);
+                    Toast.makeText(getContext(), arguments, Toast.LENGTH_SHORT).show();
                 }
             }
         });

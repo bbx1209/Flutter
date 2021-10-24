@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_news_app/Helpers/MethodChannel.dart';
 
 class MethodChannelRoute extends StatefulWidget {
   const MethodChannelRoute({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class MethodChannelRoute extends StatefulWidget {
 
 class _MethodChannelRouteState extends State<MethodChannelRoute> {
   String _infoFromNative = "";
-  static const platform = const MethodChannel("helloworld.flutter.io/info");
+  static const platform = MyMethodChannel.platform;
 
   @override
   Widget build(BuildContext context) {
