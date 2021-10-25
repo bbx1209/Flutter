@@ -43,7 +43,7 @@ List<RouteItem> getMertialItems() {
   List<RouteItem> items = [
     RouteItem("AnimatedListRoute", AnimatedListRoute()),
     RouteItem("PageViewRoute", PageViewRoute()),
-    // RouteItem("ScaleGestureRoute", ScaleGestureRoute()),
+    RouteItem("KeepAliveRoute", KeepAliveRoute()),
     // RouteItem("EventBusRoute", EventBusRoute()),
     // RouteItem("NotifyRoute", NotifyRoute()),
     // RouteItem("NotifyRouteII", NotifyRouteII()),
