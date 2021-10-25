@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/Base/RoutParam.dart';
+import 'package:flutter_news_app/Section/List/AnimatedListRoute.dart';
 
 class ListRoute extends StatefulWidget {
   const ListRoute({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _ListRouteState extends State<ListRoute> {
 
 List<RouteItem> getMertialItems() {
   List<RouteItem> items = [
-    // RouteItem("GestureDetectorRoute", GestureDetectorRoute()),
+    RouteItem("AnimatedListRoute", AnimatedListRoute()),
     // RouteItem("MoveGestureRoute", MoveGestureRoute()),
     // RouteItem("ScaleGestureRoute", ScaleGestureRoute()),
     // RouteItem("EventBusRoute", EventBusRoute()),
