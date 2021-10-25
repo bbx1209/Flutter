@@ -15,6 +15,7 @@ import 'package:flutter_news_app/Section/InheritedWidget/InheritedProviderRoute.
 import 'package:flutter_news_app/Section/InheritedWidget/InheritedRoute.dart';
 import 'package:flutter_news_app/Section/InheritedWidget/ProviderTest/ProviderRoute.dart';
 import 'package:flutter_news_app/Section/Interface/ConstValue.dart';
+import 'package:flutter_news_app/Section/List/ListRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/Merterial.dart';
 import 'package:flutter_news_app/Section/MethodChannel/MethodChannelRoute.dart';
 import 'package:flutter_news_app/Section/RouteLifeCycle/RouteLifeCycle.dart';
@@ -42,6 +43,8 @@ class HomeDataProvider {
       RouteItem("FunctionWidgetRoute", FunctionWidgetRoute()),
       RouteItem("LayoutRoute", LayoutRoute()),
       RouteItem("列表", ListViewRoute()),
+      RouteItem("ListRoute", ListRoute()),
+
       RouteItem("页面元素", MerterialRoute()),
       RouteItem("Async", AsyncRoute()),
       RouteItem("Dart Language ", DartLanguageRoute()),

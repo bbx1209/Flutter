@@ -35,6 +35,7 @@ RenderObjectWidget: LeafRenderObjectWidget ,SingleChildRenderWidget ,MultiChildR
 5.TabBarView
 6.CustomScrollView 和 Slivers
 7.滚动监听及控制 ScrollController
+8. AnimatedList
 
 ----功能性组件----
 
