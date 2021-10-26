@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -15,7 +13,6 @@ class ImagePickerRoute extends StatefulWidget {
 }
 
 class _ImagePickerRouteState extends State<ImagePickerRoute> {
-
   List<XFile>? _imageFileList;
 
   set _imageFile(XFile? value) {
@@ -57,6 +54,7 @@ class _ImagePickerRouteState extends State<ImagePickerRoute> {
       setState(() {});
     }
   }
+
   void _onImageButtonPressed(ImageSource source,
       {BuildContext? context, bool isMultiImage = false}) async {
     if (_controller != null) {
@@ -68,43 +66,44 @@ class _ImagePickerRouteState extends State<ImagePickerRoute> {
       await _playVideo(file);
     } else if (isMultiImage) {
       await _displayPickImageDialog(context!,
-              (double? maxWidth, double? maxHeight, int? quality) async {
-            try {
-              final pickedFileList = await _picker.pickMultiImage(
-                maxWidth: maxWidth,
-                maxHeight: maxHeight,
-                imageQuality: quality,
-              );
-              setState(() {
-                _imageFileList = pickedFileList;
-              });
-            } catch (e) {
-              setState(() {
-                _pickImageError = e;
-              });
-            }
+          (double? maxWidth, double? maxHeight, int? quality) async {
+        try {
+          final pickedFileList = await _picker.pickMultiImage(
+            maxWidth: maxWidth,
+            maxHeight: maxHeight,
+            imageQuality: quality,
+          );
+          setState(() {
+            _imageFileList = pickedFileList;
           });
+        } catch (e) {
+          setState(() {
+            _pickImageError = e;
+          });
+        }
+      });
     } else {
       await _displayPickImageDialog(context!,
-              (double? maxWidth, double? maxHeight, int? quality) async {
-            try {
-              final pickedFile = await _picker.pickImage(
-                source: source,
-                maxWidth: maxWidth,
-                maxHeight: maxHeight,
-                imageQuality: quality,
-              );
-              setState(() {
-                _imageFile = pickedFile;
-              });
-            } catch (e) {
-              setState(() {
-                _pickImageError = e;
-              });
-            }
+          (double? maxWidth, double? maxHeight, int? quality) async {
+        try {
+          final pickedFile = await _picker.pickImage(
+            source: source,
+            maxWidth: maxWidth,
+            maxHeight: maxHeight,
+            imageQuality: quality,
+          );
+          setState(() {
+            _imageFile = pickedFile;
           });
+        } catch (e) {
+          setState(() {
+            _pickImageError = e;
+          });
+        }
+      });
     }
   }
+
   @override
   void deactivate() {
     if (_controller != null) {
@@ -122,6 +121,7 @@ class _ImagePickerRouteState extends State<ImagePickerRoute> {
     qualityController.dispose();
     super.dispose();
   }
+
   Future<void> _disposeVideoController() async {
     if (_toBeDisposed != null) {
       await _toBeDisposed!.dispose();
@@ -146,6 +146,7 @@ class _ImagePickerRouteState extends State<ImagePickerRoute> {
       child: AspectRatioVideo(_controller),
     );
   }
+
   Widget _previewImages() {
     final Text? retrieveError = _getRetrieveErrorWidget();
     if (retrieveError != null) {
@@ -188,6 +189,7 @@ class _ImagePickerRouteState extends State<ImagePickerRoute> {
       return _previewImages();
     }
   }
+
   Future<void> retrieveLostData() async {
     final LostDataResponse response = await _picker.retrieveLostData();
     if (response.isEmpty) {
@@ -218,103 +220,103 @@ class _ImagePickerRouteState extends State<ImagePickerRoute> {
       body: Center(
         child: !kIsWeb && defaultTargetPlatform == TargetPlatform.android
             ? FutureBuilder<void>(
-          future: retrieveLostData(),
-          builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.none:
-              case ConnectionState.waiting:
-                return const Text(
-                  'You have not yet picked an image.',
-                  textAlign: TextAlign.center,
-                );
-              case ConnectionState.done:
-                return _handlePreview();
-              default:
-                if (snapshot.hasError) {
-                  return Text(
-                    'Pick image/video error: ${snapshot.error}}',
-                    textAlign: TextAlign.center,
-                  );
-                } else {
-                  return const Text(
-                    'You have not yet picked an image.',
-                    textAlign: TextAlign.center,
-                  );
-                }
-            }
-          },
-        )
+                future: retrieveLostData(),
+                builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.none:
+                    case ConnectionState.waiting:
+                      return const Text(
+                        'You have not yet picked an image.',
+                        textAlign: TextAlign.center,
+                      );
+                    case ConnectionState.done:
+                      return _handlePreview();
+                    default:
+                      if (snapshot.hasError) {
+                        return Text(
+                          'Pick image/video error: ${snapshot.error}}',
+                          textAlign: TextAlign.center,
+                        );
+                      } else {
+                        return const Text(
+                          'You have not yet picked an image.',
+                          textAlign: TextAlign.center,
+                        );
+                      }
+                  }
+                },
+              )
             : _handlePreview(),
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-      Semantics(
-      label: 'image_picker_example_from_gallery',
-        child: FloatingActionButton(
-          onPressed: () {
-            isVideo = false;
-            _onImageButtonPressed(ImageSource.gallery, context: context);
-          },
-          heroTag: 'image0',
-          tooltip: 'Pick Image from gallery',
-          child: const Icon(Icons.photo),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: FloatingActionButton(
-          onPressed: () {
-            isVideo = false;
-            _onImageButtonPressed(
-              ImageSource.gallery,
-              context: context,
-              isMultiImage: true,
-            );
-          },
-          heroTag: 'image1',
-          tooltip: 'Pick Multiple Image from gallery',
-          child: const Icon(Icons.photo_library),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: FloatingActionButton(
-          onPressed: () {
-            isVideo = false;
-            _onImageButtonPressed(ImageSource.camera, context: context);
-          },
-          heroTag: 'image2',
-          tooltip: 'Take a Photo',
-          child: const Icon(Icons.camera_alt),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: FloatingActionButton(
-          backgroundColor: Colors.red,
-          onPressed: () {
-            isVideo = true;
-            _onImageButtonPressed(ImageSource.gallery);
-          },
-          heroTag: 'video0',
-          tooltip: 'Pick Video from gallery',
-          child: const Icon(Icons.video_library),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: FloatingActionButton(
-          backgroundColor: Colors.red,
-          onPressed: () {
-            isVideo = true;
-            _onImageButtonPressed(ImageSource.camera);
-          },
-          heroTag: 'video1',
-          tooltip: 'Take a Video',
-          child: const Icon(Icons.videocam),
-        ),
-      ),
+          Semantics(
+            label: 'image_picker_example_from_gallery',
+            child: FloatingActionButton(
+              onPressed: () {
+                isVideo = false;
+                _onImageButtonPressed(ImageSource.gallery, context: context);
+              },
+              heroTag: 'image0',
+              tooltip: 'Pick Image from gallery',
+              child: const Icon(Icons.photo),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: FloatingActionButton(
+              onPressed: () {
+                isVideo = false;
+                _onImageButtonPressed(
+                  ImageSource.gallery,
+                  context: context,
+                  isMultiImage: true,
+                );
+              },
+              heroTag: 'image1',
+              tooltip: 'Pick Multiple Image from gallery',
+              child: const Icon(Icons.photo_library),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: FloatingActionButton(
+              onPressed: () {
+                isVideo = false;
+                _onImageButtonPressed(ImageSource.camera, context: context);
+              },
+              heroTag: 'image2',
+              tooltip: 'Take a Photo',
+              child: const Icon(Icons.camera_alt),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: FloatingActionButton(
+              backgroundColor: Colors.red,
+              onPressed: () {
+                isVideo = true;
+                _onImageButtonPressed(ImageSource.gallery);
+              },
+              heroTag: 'video0',
+              tooltip: 'Pick Video from gallery',
+              child: const Icon(Icons.video_library),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: FloatingActionButton(
+              backgroundColor: Colors.red,
+              onPressed: () {
+                isVideo = true;
+                _onImageButtonPressed(ImageSource.camera);
+              },
+              heroTag: 'video1',
+              tooltip: 'Take a Video',
+              child: const Icon(Icons.videocam),
+            ),
+          ),
         ],
       ),
     );
@@ -328,6 +330,7 @@ class _ImagePickerRouteState extends State<ImagePickerRoute> {
     }
     return null;
   }
+
   Future<void> _displayPickImageDialog(
       BuildContext context, OnPickImageCallback onPick) async {
     return showDialog(
@@ -341,19 +344,19 @@ class _ImagePickerRouteState extends State<ImagePickerRoute> {
                   controller: maxWidthController,
                   keyboardType: TextInputType.numberWithOptions(decimal: true),
                   decoration:
-                  InputDecoration(hintText: "Enter maxWidth if desired"),
+                      InputDecoration(hintText: "Enter maxWidth if desired"),
                 ),
                 TextField(
                   controller: maxHeightController,
                   keyboardType: TextInputType.numberWithOptions(decimal: true),
                   decoration:
-                  InputDecoration(hintText: "Enter maxHeight if desired"),
+                      InputDecoration(hintText: "Enter maxHeight if desired"),
                 ),
                 TextField(
                   controller: qualityController,
                   keyboardType: TextInputType.number,
                   decoration:
-                  InputDecoration(hintText: "Enter quality if desired"),
+                      InputDecoration(hintText: "Enter quality if desired"),
                 ),
               ],
             ),
@@ -384,9 +387,6 @@ class _ImagePickerRouteState extends State<ImagePickerRoute> {
         });
   }
 }
-
-
-
 
 typedef void OnPickImageCallback(
     double? maxWidth, double? maxHeight, int? quality);
