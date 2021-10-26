@@ -11,6 +11,7 @@ import 'package:flutter_news_app/Section/FunctionWidget/FunctionWidgetRoute.dart
 import 'package:flutter_news_app/Section/FutureBuilder/FutureBuliderRoute.dart';
 import 'package:flutter_news_app/Section/Gesture/GestureRoute.dart';
 import 'package:flutter_news_app/Section/HTTP/HttpRoute.dart';
+import 'package:flutter_news_app/Section/ImagePicker/ImagePickerRoute.dart';
 import 'package:flutter_news_app/Section/InheritedWidget/InheritedProviderRoute.dart';
 import 'package:flutter_news_app/Section/InheritedWidget/InheritedRoute.dart';
 import 'package:flutter_news_app/Section/InheritedWidget/ProviderTest/ProviderRoute.dart';
@@ -31,6 +32,7 @@ class HomeDataProvider {
     List<RouteItem> items = [
 
 
+      RouteItem("ImagePickerRoute", ImagePickerRoute()),
       RouteItem("AnimationRoute", AnimationRoute()),
       RouteItem("HTTPRoute", HTTPRoute()),
       RouteItem("DocumentRoute", DocumentRoute()),
