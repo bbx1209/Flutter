@@ -55,7 +55,8 @@ class DartLanguageRoute extends StatelessWidget {
   }
 
   void asPerson(BuildContext context) {
-    var chinese = Chinese()..nationality = "sasdfa";
+    var chinese = Chinese()
+      ..nationality = "sasdfa";
     (chinese as Chinese).nationality = "中国国籍";
     // Toast.show("${chinese.nationality}", context);
   }
@@ -110,3 +111,23 @@ class Impostor implements PersonII {
 }
 
 String greetBob(PersonII person) => person.greet('Bob');
+
+//MARK: ---- mixin ----
+class Musician {
+  void playMusic(){
+
+  }
+}
+//生命只能 mixin 在 特定的类
+mixin MusicalPerformer on Musician {
+  void useSomeMerchine() {
+    playMusic(); //使用的是 Musician 的方法
+  }
+}
+
+class Singer extends Musician with MusicalPerformer {
+  @override
+  void useSomeMerchine() {
+    super.useSomeMerchine();
+  }
+}
