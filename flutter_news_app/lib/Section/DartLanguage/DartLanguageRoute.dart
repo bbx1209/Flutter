@@ -92,3 +92,21 @@ mixin work {
     print("makemoney by:");
   }
 }
+
+class PersonII {
+  final String _name;
+
+  PersonII(this._name);
+
+  String greet(String who) => 'Hello, $who, I am $_name';
+}
+
+class Impostor implements PersonII {
+  String get _name => '';
+
+
+  @override
+  String greet(String who) => 'Hi, $who, Do you know my name';
+}
+
+String greetBob(PersonII person) => person.greet('Bob');
