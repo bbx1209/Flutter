@@ -55,13 +55,10 @@ class DartLanguageRoute extends StatelessWidget {
   }
 
   void asPerson(BuildContext context) {
-    var chinese = Chinese()
-          ..nationality = "sasdfa";
+    var chinese = Chinese()..nationality = "sasdfa";
     (chinese as Chinese).nationality = "中国国籍";
     // Toast.show("${chinese.nationality}", context);
   }
-
-
 }
 
 class Person {
@@ -71,13 +68,16 @@ class Person {
   String? phone;
 }
 
-class Chinese extends Person  {
+class Chinese extends Person {
   String? nationality;
+
+  Chinese();
+
+  Chinese.create() : nationality = "China";
 }
 
 class Writer extends Person with work {
-
-    @override
+  @override
   void makeMoney() {
     super.makeMoney();
     print("writing");
@@ -87,9 +87,8 @@ class Writer extends Person with work {
 mixin work {
   String? job;
   double? salary;
+
   void makeMoney() {
     print("makemoney by:");
   }
 }
-
-
