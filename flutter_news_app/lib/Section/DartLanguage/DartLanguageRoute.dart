@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 // import 'package:toast/toast.dart';
 
@@ -34,6 +36,14 @@ class DartLanguageRoute extends StatelessWidget {
                   writer.makeMoney();
                 },
                 child: Text("mixins ")),
+            TextButton(
+                onPressed: () async {
+                  print("start");
+                   asyncFunction();
+                  syncFunction();
+                  print("end");
+                },
+                child: Text("sync and async")),
           ],
         ),
       ),
@@ -55,8 +65,7 @@ class DartLanguageRoute extends StatelessWidget {
   }
 
   void asPerson(BuildContext context) {
-    var chinese = Chinese()
-      ..nationality = "sasdfa";
+    var chinese = Chinese()..nationality = "sasdfa";
     (chinese as Chinese).nationality = "中国国籍";
     // Toast.show("${chinese.nationality}", context);
   }
@@ -105,7 +114,6 @@ class PersonII {
 class Impostor implements PersonII {
   String get _name => '';
 
-
   @override
   String greet(String who) => 'Hi, $who, Do you know my name';
 }
@@ -114,10 +122,9 @@ String greetBob(PersonII person) => person.greet('Bob');
 
 //MARK: ---- mixin ----
 class Musician {
-  void playMusic(){
-
-  }
+  void playMusic() {}
 }
+
 //生命只能 mixin 在 特定的类
 mixin MusicalPerformer on Musician {
   void useSomeMerchine() {
@@ -130,4 +137,13 @@ class Singer extends Musician with MusicalPerformer {
   void useSomeMerchine() {
     super.useSomeMerchine();
   }
+}
+
+void syncFunction() {
+  print("syncFunction");
+}
+
+Future<void> asyncFunction() async {
+  sleep(Duration(seconds: 2));
+  print("async function");
 }
