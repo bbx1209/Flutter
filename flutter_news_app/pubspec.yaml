@@ -38,6 +38,9 @@ dependencies:
   path_provider: ^2.0.2
   # http 请求
   dio: ^4.0.0
+  #相册
+  image_picker: ^0.8.4+3
+  video_player: ^2.2.5
 
 dev_dependencies:
   flutter_test:
