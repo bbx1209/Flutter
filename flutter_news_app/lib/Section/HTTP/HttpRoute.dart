@@ -45,6 +45,27 @@ class _HTTPRouteState extends State<HTTPRoute> {
               dioPostWithFormData();
             },
           ),
+          Container(
+            alignment: Alignment.center,
+            child: FutureBuilder(
+                future:
+                    Dio().get("https://api.github.com/orgs/flutterchina/repos"),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  //请求完成
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    Response response = snapshot.data;
+                    //发生错误
+                    if (snapshot.hasError) {
+                      return Text(snapshot.error.toString());
+                    }
+                    //请求成功，通过项目信息构建用于显示项目名称的ListView
+                    print(response.data.toString());
+                    return Text("done");
+                  }
+                  //请求未完成时弹出loading
+                  return CircularProgressIndicator();
+                }),
+          ),
         ],
       ),
     );

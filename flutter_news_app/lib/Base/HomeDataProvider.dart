@@ -16,6 +16,7 @@ import 'package:flutter_news_app/Section/InheritedWidget/InheritedProviderRoute.
 import 'package:flutter_news_app/Section/InheritedWidget/InheritedRoute.dart';
 import 'package:flutter_news_app/Section/InheritedWidget/ProviderTest/ProviderRoute.dart';
 import 'package:flutter_news_app/Section/Interface/ConstValue.dart';
+import 'package:flutter_news_app/Section/JsonConvert/JsonConvert.dart';
 import 'package:flutter_news_app/Section/List/ListRoute.dart';
 import 'package:flutter_news_app/Section/Merterial/Merterial.dart';
 import 'package:flutter_news_app/Section/MethodChannel/MethodChannelRoute.dart';
@@ -35,6 +36,7 @@ class HomeDataProvider {
       RouteItem("ImagePickerRoute", ImagePickerRoute()),
       RouteItem("AnimationRoute", AnimationRoute()),
       RouteItem("HTTPRoute", HTTPRoute()),
+      RouteItem("JsonConvert", JsonConvert()),
       RouteItem("DocumentRoute", DocumentRoute()),
       RouteItem("ValueListenRoute", ValueListenRoute()),
       RouteItem("ThemeRoute", ThemeRoute()),
