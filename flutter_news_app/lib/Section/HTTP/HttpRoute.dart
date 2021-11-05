@@ -39,6 +39,12 @@ class _HTTPRouteState extends State<HTTPRoute> {
               dioPostWithParam();
             },
           ),
+          TextButton(
+            child: Text("dio post formdata"),
+            onPressed: () {
+              dioPostWithFormData();
+            },
+          ),
         ],
       ),
     );
@@ -62,20 +68,30 @@ httpClientRqueset() async {
 }
 
 dioGet() async {
- var dio = Dio();
- Response response = await dio.get("https://httpbin.org/get");
- print(response.data.toString() + response.headers.toString());
+  var dio = Dio();
+  Response response = await dio.get("https://httpbin.org/get");
+  print(response.data.toString() + response.headers.toString());
 }
 
 dioGetWithParam() async {
   var dio = Dio();
-  Response response = await dio.get("https://httpbin.org/get",queryParameters: {"a":"1","b":"2"});
+  Response response = await dio
+      .get("https://httpbin.org/get", queryParameters: {"a": "1", "b": "2"});
   print(response.data.toString() + response.headers.toString());
 }
 
 dioPostWithParam() async {
   var dio = Dio();
-  Response response = await dio.post("https://httpbin.org/post",data: {"a":"1","b":"2"});
+  Response response =
+      await dio.post("https://httpbin.org/post", data: {"a": "1", "b": "2"});
   print(response.data.toString() + response.headers.toString());
 }
 
+dioPostWithFormData() async {
+  var dio = Dio();
+  FormData formData = FormData.fromMap({"name": "weixin", "age": 11});
+
+  Response response =
+      await dio.post("https://httpbin.org/post", data: formData);
+  print(response.data.toString() + response.headers.toString());
+}
